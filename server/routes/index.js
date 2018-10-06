@@ -7,7 +7,7 @@ module.exports = function(router){
       
 
     //HTML (Public) Routes
-    router.get("/", html.home);
+    router.get("/register", html.home);
     router.get("/login", html.login);
 
     //API
@@ -17,7 +17,7 @@ module.exports = function(router){
     router.get("/api/user_data", Auth.getData);
     
     //Users routes
-    router.get('/api/users', users.index);
+    //router.get('/api/users', users.index);
     //router.get('/api/users/:id', users.show);
     //router.post('/api/users', users.create);
     //router.put('/api/users', users.update);
