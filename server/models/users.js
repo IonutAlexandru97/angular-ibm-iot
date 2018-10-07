@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true
     },
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    firstname: DataTypes.STRING,
+    lastname: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING,
     email: DataTypes.STRING

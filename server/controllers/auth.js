@@ -1,25 +1,9 @@
 Model = require("../models/").users;
+auth = require('../config/passport')
 
 module.exports = {
     login(req, res) {
         res.json("/");
-    },
-
-    signup(req, res) {
-        console.log(req.body);
-        Model.create({
-            email: req.body.email,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            password: req.body.password
-        })
-            .then(function () {
-                res.redirect(307, "/api/login");
-            })
-            .catch(function (err) {
-                console.log(err);
-                res.json(err);
-            });
     },
 
     logout(req, res) {
