@@ -1,6 +1,5 @@
 'use strict';
-var bcrypt = require("bcrypt-nodejs");
-
+var bCrypt = require('bcrypt-nodejs');
 module.exports = (sequelize, DataTypes) => {
   const users = sequelize.define('users', {
     id: {
@@ -20,13 +19,11 @@ module.exports = (sequelize, DataTypes) => {
   users.associate = function(models) {
     // associations can be defined here
   };
-  users.prototype.validPassword = function(password){
-    return bcrypt.compareSync(password, this.password);
+  users.generateHash = function(password){
+    return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
   };
-
-  users.hook("beforeCreate", function(user){
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-  });
-  
+  users.prototype.validPassword = function(password) {
+    return bCrypt.compareSync(password, this.password);
+  };
   return users;
 };

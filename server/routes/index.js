@@ -1,33 +1,27 @@
 var users = require('../controllers/users');
 var passport = require ("../config/passport");
-var Auth = require("../controllers/auth");
-var html = require("../controllers/client");
+var client = require("../controllers/client");
   
 module.exports = function(router){
       
 
     //HTML (Public) Routes
-    router.get("/", html.home);
-    router.get("/login", html.login);
-    router.get("/members", html.members);
-    router.get("/register", html.signUp);
+    router.get("/", client.home);
+    router.get("/login", client.login);
+    router.get("/members", client.members);
+    router.get("/register", client.signUp);
 
-    //API
-    router.post("/api/login", passport.authenticate("local"), Auth.login);
+    //API (Server) Routes
+    router.post("/api/login", passport.authenticate("local-login"), function(req, res){
+        res.json('/api/users');
+    });
     router.post("/api/signup", passport.authenticate("local-signup", {
         successRedirect: '/members',
         failureRedirect: '/register'
     }));
-
-    router.get("/logout", Auth.logout);
-    router.get("/api/user_data", Auth.getData);
     
     //Users routes
     router.get('/api/users', users.index);
-    //router.get('/api/users/:id', users.show);
-    //router.post('/api/users', users.create);
-    //router.put('/api/users', users.update);
-    //router.delete('/api/users', users.delete);
 
 
     return router;

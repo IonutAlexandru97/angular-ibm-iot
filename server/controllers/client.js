@@ -1,12 +1,17 @@
 var path = require("path");
-var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = {
     home(req, res){
-        if(req.user){
-            res.redirect("/members");
+        if(req.isAuthenticated()){
+            var user = {
+                id: req.session.passport.user,
+                isLoggedin: req.isAuthenticated()
+            }
+            res.sendFile(path.join(__dirname, "../../client/members.html"), user);
         }
-        res.sendFile(path.join(__dirname, "../../client/index.html"));
+        else{
+            res.sendFile(path.join(__dirname, "../../client/members.html"));
+        }
     },
 
     signUp(req, res){
