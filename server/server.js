@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var session = require("express-session");
 var passport = require('passport');
 var flash  = require('connect-flash');
+var cookieParser = require('cookie-parser');
 var routes = require('./routes');
 var cors = require('cors');
 var app = express();
@@ -19,6 +20,7 @@ app.use(session({
   }
 }));
 app.use(cors());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());

@@ -29,9 +29,11 @@ module.exports = {
     },
 
     members(req, res){
-        if(req.user){
-            res.redirect('/members');
-        }
         res.sendFile(path.join(__dirname, "../../client/members.html"));
+    },
+
+    logout(req, res){
+        req.logout();
+        res.redirect("/login");
     }
 }
