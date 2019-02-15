@@ -1,37 +1,37 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var session = require("express-session");
-var passport = require('passport');
-var flash  = require('connect-flash');
-var cookieParser = require('cookie-parser');
-var routes = require('./routes');
-var cors = require('cors');
 var app = express();
-
-
-//Configure server
-app.use(session({
-  key: 'user_sid',
-  secret: 'goN6DJJC6E287cC77kkdYuNuAyWnz7Q3iZj8',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-      expires: 600000
-  }
-}));
-app.use(cors());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-//App routes
-app.use(routes(express.Router()));
-
-
-app.set('port', process.env.PORT || 8000);
-app.listen(app.get('port'), function () {
-  console.log("Connected on:", app.get('port'));
+var bodyParser = require('body-parser');
+app.use(bodyParser.json())
+ 
+require('./router/router')(app);
+ 
+const db = require('./config/db.js');
+ 
+const Role = db.role;
+ 
+// force: true will drop the table if it already exists
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync with { force: true }');
+  initial();
 });
+ 
+// Create a Server
+var server = app.listen(8080, function () {
+ 
+	var host = server.address().address
+	var port = server.address().port
+ 
+	console.log("App listening at http://%s:%s", host, port)
+})
+ 
+function initial() {
+	Role.create({
+		id: 1,
+		name: "USER"
+	});
+ 
+	Role.create({
+		id: 3,
+		name: "ADMIN"
+	});
+}
