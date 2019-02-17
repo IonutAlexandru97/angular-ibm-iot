@@ -5,6 +5,7 @@
         "username": "ionut.alexandru.candea",
         "email": "ionut.alexandru.candea@ibm.com",
         "password": "Subatomizat12345?",
-        "role": "admin"
+        "role": "admin",
+        "img": []
     }
 ]
