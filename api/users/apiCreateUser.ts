@@ -9,7 +9,8 @@ export const apiCreateUsers: RequestHandler = (req, res, next) => {
         username: req.body.username || "",
         email: req.body.email || "",
         password: req.body.password || "",
-        role: req.body.role || ""
+        role: req.body.role || "",
+        img: []
     }
 
     DataStore.users.push(newUser);

@@ -3,8 +3,8 @@ import { RequestHandler } from "express";
 
 export const apiDeleteUsers: RequestHandler = (req, res, next) => {
 
-   const tourID = req.params.id;
-   const userIndex = DataStore.users.findIndex((item: any) => item.id == tourID);
+   const userID = req.params.id;
+   const userIndex = DataStore.users.findIndex((item: any) => item.id == userID);
    if(userIndex > -1){
        DataStore.users.splice(userIndex);
        res.json({"status": "success", "message": "Element removed"});

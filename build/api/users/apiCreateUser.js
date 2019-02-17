@@ -12,7 +12,8 @@ exports.apiCreateUsers = function (req, res, next) {
         username: req.body.username || "",
         email: req.body.email || "",
         password: req.body.password || "",
-        role: req.body.role || ""
+        role: req.body.role || "",
+        img: []
     };
     data_1.DataStore.users.push(newUser);
     res.send("New user created");

@@ -6,6 +6,7 @@ var usersDetail = /** @class */ (function () {
         this.name = data.name;
         this.username = data.username;
         this.email = data.username;
+        this.img = data.img;
     }
     return usersDetail;
 }());
