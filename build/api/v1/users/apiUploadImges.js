@@ -7,7 +7,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var data_1 = require("../../data/data");
+var data_1 = require("../../../data/data");
 var staticFileService = __importStar(require("../general/static"));
 exports.apiUploadeImages = function (req, res, next) {
     var userID = req.params.id;

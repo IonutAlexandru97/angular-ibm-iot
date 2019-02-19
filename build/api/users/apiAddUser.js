@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var v4_1 = __importDefault(require("uuid/v4"));
 var data_1 = require("../../data/data");
 var messages_1 = require("../../model/shared/messages");
-exports.apiCreateUsers = function (req, res, next) {
+exports.apiAddUser = function (req, res, next) {
     if (!req.body) {
         next(new messages_1.APIError("Data missing", "No Data in Request Body.", 400));
     }

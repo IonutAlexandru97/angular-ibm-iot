@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var data_1 = require("../../data/data");
-var messages_1 = require("../../model/shared/messages");
+var data_1 = require("../../../data/data");
+var messages_1 = require("../../../model/shared/messages");
 exports.apiDeleteUsers = function (req, res, next) {
     var userID = req.params.id;
     var userIndex = data_1.DataStore.users.findIndex(function (item) { return item.id == userID; });
