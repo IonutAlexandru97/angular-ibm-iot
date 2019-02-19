@@ -4,11 +4,12 @@ import { apiAddUser } from "./apiAddUser";
 import { apiDeleteUsers } from "./apiDeleteUser";
 import { apiUpdateUsers } from "./apiUpdateUser";
 import { jsonParser } from "../general/bodyParser";
+import { apiGetUsers } from "./apiGetUsers";
 
 export let userRouter = Router();
 
 userRouter.route("/")
-.get(apiGetUsersDetails)
+.get(apiGetUsers)
 .post(jsonParser, apiAddUser);
 
 userRouter.route("/:id")

@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import uuid from "uuid/v4";
-import { DataStore } from "../../../data/data";
 import { APIError, PublicInfo } from "../../../model/shared/messages";
+import { db, pgp } from "../../../db/db";
 
 export const apiAddUser: RequestHandler = (req, res, next) => {
     if(!req.body){
@@ -16,7 +16,8 @@ export const apiAddUser: RequestHandler = (req, res, next) => {
         role: req.body.role || "",
         img: []
     }
-
-    DataStore.users.push(newUser);
-    res.json(new PublicInfo("User added", 200, {user: newUser}));
+    db.none(pgp.helpers.insert(newUser, undefined, "users")).then(() => {
+        res.json(new PublicInfo("User added", 200, {user: newUser}));
+    })
+    
 };
