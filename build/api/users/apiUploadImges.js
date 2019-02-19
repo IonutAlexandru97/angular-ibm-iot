@@ -24,6 +24,7 @@ exports.apiUploadeImages = function (req, res, next) {
             }
             else {
                 data_1.DataStore.users[userIndex].img.push(req.file.filename);
+                res.json({ "status": "Success", "message": "File upload success!" });
             }
         });
     }

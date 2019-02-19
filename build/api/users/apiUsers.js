@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var apiGetUserDetail_1 = require("./apiGetUserDetail");
+var apiAddUser_1 = require("./apiAddUser");
+var apiDeleteUser_1 = require("./apiDeleteUser");
+var apiUpdateUser_1 = require("./apiUpdateUser");
+exports.userRouter = express_1.Router();
+exports.userRouter.get("/:id", apiGetUserDetail_1.apiGetUsersDetails);
+exports.userRouter.post("/", apiAddUser_1.apiAddUser);
+exports.userRouter.delete("/:id", apiDeleteUser_1.apiDeleteUsers);
+exports.userRouter.patch("/:id", apiUpdateUser_1.apiUpdateUsers);
