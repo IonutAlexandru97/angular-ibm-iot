@@ -10,8 +10,8 @@ var apiGetUsers_1 = require("./apiGetUsers");
 exports.userRouter = express_1.Router();
 exports.userRouter.route("/")
     .get(apiGetUsers_1.apiGetUsers)
-    .post(bodyParser_1.jsonParser, apiAddUser_1.apiAddUser);
+    .post(apiAddUser_1.apiAddUser);
 exports.userRouter.route("/:id")
-    .get(apiGetUserDetail_1.apiGetUsersDetails)
+    .get(bodyParser_1.jsonParser, apiGetUserDetail_1.apiGetUsersDetails)
     .delete(apiDeleteUser_1.apiDeleteUsers)
     .patch(apiUpdateUser_1.apiUpdateUsers);

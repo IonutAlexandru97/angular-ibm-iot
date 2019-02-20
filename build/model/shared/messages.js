@@ -27,6 +27,21 @@ var APIError = /** @class */ (function (_super) {
     APIError.prototype.publicVersion = function () {
         return new PublicError(this);
     };
+    APIError.errNotFound = function (properties, internalProperties) {
+        return new APIError("Resource not found", "The specified Resource does not exist", 404, properties, internalProperties);
+    };
+    APIError.errInvalidQueryParameter = function (properties, internalProperties) {
+        return new APIError("Invalid Query Parameter", "One of the query parameters specified is invalid", 400, properties, internalProperties);
+    };
+    APIError.errMissingBody = function (properties, internalProperties) {
+        return new APIError("Missing Body", "Missing Data in Request Body.", 400, properties, internalProperties);
+    };
+    APIError.errServerError = function (properties, internalProperties) {
+        return new APIError("Internal Server Error", "Request could not be carried out.", 500, properties, internalProperties);
+    };
+    APIError.errUnauthorized = function (properties, internalProperties) {
+        return new APIError("Unauthorized", "Client Authorization Failed", 401, properties, internalProperties);
+    };
     return APIError;
 }(Error));
 exports.APIError = APIError;

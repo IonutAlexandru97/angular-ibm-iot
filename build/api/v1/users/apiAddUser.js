@@ -8,18 +8,20 @@ var messages_1 = require("../../../model/shared/messages");
 var db_1 = require("../../../db/db");
 exports.apiAddUser = function (req, res, next) {
     if (!req.body) {
-        next(new messages_1.APIError("Data missing", "No Data in Request Body.", 400));
+        next(messages_1.APIError.errMissingBody());
     }
-    var newUser = {
-        id: v4_1.default(),
-        name: req.body.name || "",
-        username: req.body.username || "",
-        email: req.body.email || "",
-        password: req.body.password || "",
-        role: req.body.role || "",
-        img: []
-    };
-    db_1.db.none(db_1.pgp.helpers.insert(newUser, undefined, "users")).then(function () {
-        res.json(new messages_1.PublicInfo("User added", 200, { user: newUser }));
-    });
+    if (!req.user) {
+        next(messages_1.APIError.errUnauthorized());
+    }
+    else {
+        var newUser_1 = {
+            id: v4_1.default(),
+            email: req.body.email || "",
+            family_name: req.body.family_name || "",
+            given_name: req.body.given_name || ""
+        };
+        db_1.db.none(db_1.pgp.helpers.insert(newUser_1, undefined, "users")).then(function () {
+            res.json(new messages_1.PublicInfo("User added", 200, { user: newUser_1 }));
+        });
+    }
 };

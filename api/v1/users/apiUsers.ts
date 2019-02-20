@@ -10,9 +10,9 @@ export let userRouter = Router();
 
 userRouter.route("/")
 .get(apiGetUsers)
-.post(jsonParser, apiAddUser);
+.post(apiAddUser);
 
 userRouter.route("/:id")
-.get(apiGetUsersDetails)
+.get(jsonParser, apiGetUsersDetails)
 .delete(apiDeleteUsers)
 .patch(apiUpdateUsers);
