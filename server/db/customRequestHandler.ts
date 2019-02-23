@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import * as dbModel from "../db/model_generated";
+import * as usersModel from "../model/users";
 
 export interface CustomRequest extends Request {
-    user?: dbModel.users;
+    users?: usersModel.users;
 }
 
-export interface CustomResponse extends Response {
+export interface CustomResponse extends Response{
 
 }
 
