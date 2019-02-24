@@ -13,7 +13,6 @@ app.disable("X-powered-by");
 app.use("/v1", routerV1);
 
 app.use(express.static(__dirname));
-console.log(__dirname);
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 
