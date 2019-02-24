@@ -1,5 +1,5 @@
 import { CustomRequestHandler } from "../../db/customRequestHandler";
-import uuid from "uuid"; 
+import * as uuid from "uuid"; 
 import { setPassword } from "../auth/Encryption";
 import { db, pgp } from "../../db/conf";
 

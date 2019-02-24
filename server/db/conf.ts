@@ -1,4 +1,4 @@
-import pgPromise from "pg-promise";
+import * as pgPromise from "pg-promise";
 
 export const pgp = pgPromise();
 

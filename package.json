@@ -9,7 +9,7 @@
     "lint-client": "ng lint",
     "e2e-client": "ng e2e",
     "build-server": "tsc",
-    "start-server": "tsc && node build/server/server.js",
+    "start-server": "tsc && node build/server.js",
     "start": "nodemon -e ts -w ./ -x npm run start-server"
   },
   "dependencies": {

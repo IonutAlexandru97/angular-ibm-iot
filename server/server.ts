@@ -1,4 +1,4 @@
-import express from "express";
+import * as express from "express";
 import { routerV1 } from "./api/v1";
 
 const port = 3000;
