@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'client';
+  title = 'angular-app';
+  appId = 'Dark'; //Default theme
+
+  switchTheme(appId: string){
+    this.appId = appId; //Change default theme
+  }
 }

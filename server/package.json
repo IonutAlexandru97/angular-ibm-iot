@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "main": "server.ts",
   "scripts": {
-    "build": "tsc",
-    "start-server": "tsc && node build/server.js",
+    "build-client": "cd ../client && ng build",
+    "build-server": "tsc",
+    "start-server": "npm run build-client && npm run build-server && node build/server.js",
     "start": "nodemon -e ts -w ./ -x npm run start-server"
   },
   "dependencies": {
