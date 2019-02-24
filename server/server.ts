@@ -10,10 +10,6 @@ const port = 3001;
 const app = express();
 
 app.disable("X-powered-by");
-//app.use(logger);
-//app.use(apiCors);
-//app.use(apiValidation);
-
 app.use("/v1", routerV1);
 
 app.use(express.static(__dirname));
