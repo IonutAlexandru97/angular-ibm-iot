@@ -7,6 +7,7 @@ import { MatListModule, MatSidenavModule, MatToolbarModule, MatMenuModule, MatBu
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
