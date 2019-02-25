@@ -26,12 +26,3 @@ html {
 	$angular-app-blue-theme: mat-light-theme($angular-app-blue-primary, $angular-app-blue-accent, $angular-app-blue-warn);
 	@include angular-material-theme($angular-app-blue-theme);
 }
-
-#side-navbar-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-	right: 0;
-	
-}
