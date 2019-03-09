@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule, MatSidenavModule, MatToolbarModule, MatMenuModule, MatButtonModule, MatIconModule, MatSliderModule, MatGridListModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RegisterComponent } from './components/register/register.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterService } from './components/register/services/register.service';
 
 
 
@@ -18,7 +21,6 @@ import { RegisterComponent } from './components/register/register.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -30,9 +32,14 @@ import { RegisterComponent } from './components/register/register.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    RegisterService
+  ],
   bootstrap: [
     AppComponent
   ]

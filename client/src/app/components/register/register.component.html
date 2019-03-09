@@ -8,28 +8,28 @@
         <form class="register-form">
           <mat-form-field class="full-width">
             <mat-label> First Name </mat-label>
-            <input matInput placeholder="First Name" name="first_name" required>
+            <input [(ngModel)]="registerUserData.first_name" matInput placeholder="First Name" name="first_name" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-label> Last Name </mat-label>
-            <input matInput placeholder="Last Name" name="last_name" required>
+            <input [(ngModel)]="registerUserData.last_name" matInput placeholder="Last Name" name="last_name" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-label> Username </mat-label>
-            <input matInput placeholder="Username" name="username" required>
+            <input [(ngModel)]="registerUserData.username" matInput placeholder="Username" name="username" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-label> E-mail </mat-label>
-            <input matInput placeholder="E-mail" name="email" required>
+            <input [(ngModel)]="registerUserData.email" matInput placeholder="E-mail" name="email" required>
           </mat-form-field>
           <mat-form-field class="full-width">
             <mat-label> Password </mat-label>
-            <input matInput placeholder="Password" name="password" required>
+            <input [(ngModel)]="registerUserData.password" matInput placeholder="Password" type="password" name="password" required>
           </mat-form-field>
         </form>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-raised-button (click)="register()" color="primary">REGISTER</button>
+        <button (click)="register()" mat-raised-button  color="primary">REGISTER</button>
       </mat-card-actions>
     </mat-card>
   </div>
