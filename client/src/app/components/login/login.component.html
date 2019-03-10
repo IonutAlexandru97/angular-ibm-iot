@@ -8,11 +8,11 @@
         <form class="login-form">
           <mat-form-field class="full-width">
             <mat-label> E-mail </mat-label>
-            <input matInput placeholder="E-mail" name="email" required>
+            <input [(ngModel)]="loginUserData.email" matInput placeholder="E-mail" name="email" required>
           </mat-form-field>
           <mat-form-field class="fulld-width">
             <mat-label> Password </mat-label>
-            <input matInput type="password" placeholder="Password" name="password" required>
+            <input [(ngModel)]="loginUserData.password" matInput type="password" placeholder="Password" name="password" required>
           </mat-form-field>
         </form>
       </mat-card-content>
