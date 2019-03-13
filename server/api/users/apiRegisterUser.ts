@@ -2,9 +2,11 @@ import { CustomRequestHandler } from "../../db/customRequestHandler";
 import uuid = require("uuid");
 import { setPassword } from "../auth/Encryption";
 import { db, pgp } from "../../db/conf";
+import * as model from '../../model/users';
+import { apiSessionGenerate } from "../auth/sessionGenerate";
 
 export const apiRegisterUser: CustomRequestHandler = (req, res, next) => {
-    const newUser = {
+    const newUser: model.users = {
         id: uuid(),
         username: req.body.username,
         first_name: req.body.first_name,
@@ -14,6 +16,7 @@ export const apiRegisterUser: CustomRequestHandler = (req, res, next) => {
     }
    newUser.password = setPassword(newUser.password);
    db.none(pgp.helpers.insert(newUser, undefined, "users")).then(() => {
-       res.json("Success!!");
+       req.users = newUser;
+       apiSessionGenerate(req, res, next);
    }) 
 };

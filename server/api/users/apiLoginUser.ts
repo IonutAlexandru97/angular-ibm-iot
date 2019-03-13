@@ -2,6 +2,7 @@ import { CustomRequestHandler } from "../../db/customRequestHandler";
 import { db, pgp } from "../../db/conf";
 import * as model from "../../model/users";
 import * as bcrypt from "bcrypt-nodejs";
+import { apiSessionGenerate } from "../auth/sessionGenerate";
 
 
 export const apiLoginUser: CustomRequestHandler = (req, res, next) => {
@@ -13,7 +14,8 @@ export const apiLoginUser: CustomRequestHandler = (req, res, next) => {
                 if(!ress){
                     res.status(401).json("Invalid password!");
                 }else{
-                    res.status(200).json("Successfully Login!");
+                    req.users = user;
+                    apiSessionGenerate(req, res, next);
                 }
             })
     }).catch(err => {
