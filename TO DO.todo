@@ -6,7 +6,7 @@ TO DO:
             ☐ facebook register @low
             ✔ JWT Token Generate @done (3/13/2019, 12:43:55 PM)
         Client:
-            ☐ Store JWT @today 
+            ✔ Store JWT @done (3/18/2019, 11:25:11 AM)
             ☐ Google register @high
     Login:
         Server:
@@ -14,6 +14,6 @@ TO DO:
             ✔ JWT Token Generate @done (3/13/2019, 12:42:59 PM)
             ☐ google sign in @high
         Client:
-            ☐ Store JWT @today
+            ✔ Store JWT @done (3/18/2019, 11:25:06 AM)
             ☐ Google signin @high
         
