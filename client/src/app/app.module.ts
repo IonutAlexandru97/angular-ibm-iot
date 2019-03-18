@@ -7,10 +7,11 @@ import { MatListModule, MatSidenavModule, MatToolbarModule, MatMenuModule, MatBu
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterService } from './components/register/services/register.service';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from 'src/services/auth.service';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
     AppRoutingModule
   ],
   providers: [
-    RegisterService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [
     AppComponent
