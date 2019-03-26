@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { UserHomeComponent } from './components/user-home/user-home.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from 'src/services/auth.service';
 import { TokenInterceptorService } from 'src/services/token-interceptor.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { TokenInterceptorService } from 'src/services/token-interceptor.service'
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserHomeComponent
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
