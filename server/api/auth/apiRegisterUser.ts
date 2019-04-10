@@ -3,8 +3,9 @@ import * as model from '../model/users';
 import uuid = require("uuid");
 import * as bcrypt from "bcrypt-nodejs";
 import { db, pgp } from '../db/conf';
+import { setPassword } from "./setPassword";
 
-export const apiRegisterUser: CustomRequestHandler = (req, res, next) =>{
+export const apiRegisterUser: CustomRequestHandler = (req, res, next) => {
     const newUser: model.users = {
         id: uuid(),
         username: req.body.username,
@@ -13,18 +14,9 @@ export const apiRegisterUser: CustomRequestHandler = (req, res, next) =>{
         email: req.body.email,
         password: req.body.password
     }
-
-    newUser.password = setPassword(newUser.password);
-    db.one(pgp.helpers.insert(newUser, undefined, "users")).then(() =>{
-        res.json("User added to database!");
-    }).catch(err => {
-        if(err.code == pgp.errors.queryResultErrorCode.noData){
-            res.status(401).json("Invalid query!");
-        }
-    });
-}
-
-function setPassword(password: string){
-    var hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-    return hash;
-}
+   newUser.password = setPassword(newUser.password);
+   db.none(pgp.helpers.insert(newUser, undefined, "users")).then(() => {
+       req.users = newUser;
+       res.json("User " + newUser.username + " was registered!");
+   })
+};
