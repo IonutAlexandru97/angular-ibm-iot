@@ -11,4 +11,4 @@ routerV1.use(logger);
 routerV1.use(apiCors);
 routerV1.use(apiValidation);
 routerV1.use("/users", userRouter);
-routerV1.use("/auth"), authRouter);
+routerV1.use("/auth", authRouter);
