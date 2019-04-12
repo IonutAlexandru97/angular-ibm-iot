@@ -12,20 +12,20 @@ export class LoginComponent implements OnInit {
   loginUserData = {}
 
   constructor(private _login: AuthService,
-              private _router: Router) { }
+    private _router: Router) { }
 
   ngOnInit() {
   }
 
-  login(){
+  login() {
     this._login.login(this.loginUserData)
-    .subscribe(
-      res => {
-        console.log(res)
-        this._router.navigate(['/profile'])
-      },
-      err => console.log(err)
-    )
+      .subscribe(
+        res => {
+          console.log(res)
+          this._router.navigate(['/profile'])
+        },
+        err => console.log(err)
+      )
   }
 
 }
