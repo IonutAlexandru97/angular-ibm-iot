@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "server.ts",
   "scripts": {
-    "build-client": "cd ../client && ng build",
+    "build-client": " if exist build (RD /S /Q build && cd ../client && ng build) else (cd ../client && ng build)",
     "build-server": "tsc",
     "start-server": "npm run build-server && node build/server.js",
     "start-app": "npm run build-client && npm run build-server && node build/server.js",
