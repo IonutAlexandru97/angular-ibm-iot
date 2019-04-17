@@ -5,8 +5,8 @@ import { apiGetUserDetails } from "./apiGetUserDetails";
 
 export let userRouter = Router();
 
-//userRouter.route("/all")
-//.get(jsonParser, apiGetUsers);
+userRouter.route("/all")
+.get(jsonParser, apiGetUsers);
 
 userRouter.route("/:id")
 .get(jsonParser, apiGetUserDetails);

@@ -11,3 +11,5 @@ const dbConf = {
 }
 
 export const db = pgp(dbConf);
+export const sessionTokenSecret = "MxHcGQxXICqglPNHcwK4vNPHU4ucPFt2";
+export const sessionTokenLifetime = 60 * 60 * 2;

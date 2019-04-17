@@ -4,6 +4,7 @@ import uuid = require("uuid");
 import * as bcrypt from "bcrypt-nodejs";
 import { db, pgp } from '../db/conf';
 import { setPassword } from "./setPassword";
+import { apiSessionGenerate } from "./apiSessionGenerate";
 
 export const apiRegisterUser: CustomRequestHandler = (req, res, next) => {
     const newUser: model.users = {
@@ -16,7 +17,7 @@ export const apiRegisterUser: CustomRequestHandler = (req, res, next) => {
     }
    newUser.password = setPassword(newUser.password);
    db.none(pgp.helpers.insert(newUser, undefined, "users")).then(() => {
-       req.users = newUser;
-       res.json("User " + newUser.username + " was registered!");
+    req.users = newUser;
+    apiSessionGenerate(req, res, next);
    })
 };
