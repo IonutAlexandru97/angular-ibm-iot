@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService, TokenPayload } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,25 +7,25 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  loginUserData = {}
+  credentials: TokenPayload = {
+    first_name: '',
+    last_name: '',
+    username: '',
+    email: '',
+    password: ''
+  };
 
-  constructor(private _login: AuthService,
-    private _router: Router) { }
+  constructor(private auth: AuthService, private router: Router) {}
 
-  ngOnInit() {
-  }
-
-  login() {
-    this._login.login(this.loginUserData)
-      .subscribe(
-        res => {
-          localStorage.setItem('token', res.token)
-          this._router.navigate(['/profile'])
-        },
-        err => console.log(err)
-      )
+  login(){
+    this.auth.login(this.credentials).subscribe(() => {
+      this.router.navigateByUrl('/profile');
+    },
+    (err) =>{
+      console.error(err);
+    });
   }
 
 }

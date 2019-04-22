@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService, TokenPayload } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,25 +7,26 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  registerUserData = {}
+  credentials: TokenPayload = {
+    first_name: '',
+    last_name: '',
+    username: '',
+    email: '',
+    password: ''
+  };
 
-  constructor(private _register: AuthService,
-              private _router: Router) { }
+  constructor(private auth: AuthService,
+    private router: Router) { }
 
-  ngOnInit() {
-  }
-
-  register(){
-    this._register.register(this.registerUserData)
-    .subscribe(
-      res => {
-        localStorage.setItem('token', res.token)
-        this._router.navigate(['/profile'])
-      },
-      err => console.log(err)
-    )
+  register() {
+    this.auth.register(this.credentials).subscribe(() => {
+      this.router.navigateByUrl('/profile');
+    },
+    (err) => {
+      console.error(err);
+    })
   }
 
 }
