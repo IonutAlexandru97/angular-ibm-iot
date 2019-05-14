@@ -25,10 +25,6 @@ export interface UserDetails {
 
 @Injectable()
 export class AuthenticationService {
-
-    private _registerURL = " http://localhost:3000/api/register"
-    private _loginURL = "http://localhost:3000/api/login"
-    private _profileURL = "http://localhost:3000/api/profile"
     private token: string;
     constructor(private http: HttpClient) { }
 
