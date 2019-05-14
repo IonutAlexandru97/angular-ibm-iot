@@ -1,27 +1,29 @@
+require('./config/config');
+require('./config/db');
+require('./config/passport');
+
 const express = require('express');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const logger = morgan("dev");
 const cors = require('cors');
-const app = express()
-const port = 3000
+var app = express();
+const routes = require('./routes');
+const passport = require('passport');
+const logger = require('morgan');
 
-
-import UsersApi from './api/users'
-import Auth from './general/middleware';
-
+app.use(bodyParser.json());
 app.use(cors());
-app.options('*', cors());
-app.use(logger);
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(passport.initialize());
+app.use(logger('dev'));
 
-//Users API
-app.get('/api/users/profile', Auth.verifyToken, UsersApi.profile);
-app.get('/api/users/:id', Auth.verifyToken, UsersApi.getById);
-app.get('/api/users/all', Auth.verifyToken, UsersApi.getAll);
-app.post('/api/users/register', UsersApi.create);
-app.post('/api/users/login', UsersApi.login);
+app.use('/api', routes);
 
+//error handler
+app.use((err, req, res, next) => {
+    if (err.name === 'ValidationError') {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors)
+    }
+});
 
-app.listen(process.env.PORT || port, () => console.log(`Server started at http://localhost:${port}`));
+app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));

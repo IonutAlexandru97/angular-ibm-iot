@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, TokenPayload } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
+import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -8,25 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
-  credentials: TokenPayload = {
+  registerUserData: TokenPayload = {
     first_name: '',
     last_name: '',
     username: '',
     email: '',
     password: ''
-  };
-
-  constructor(private auth: AuthService,
-    private router: Router) { }
-
+  }
+  constructor(private auth: AuthenticationService) { }
   register() {
-    this.auth.register(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/profile');
-    },
-    (err) => {
-      console.error(err);
-    })
+    this.auth.register(this.registerUserData)
+      .subscribe(
+        res => {
+          localStorage.setItem('token', res.token)
+        },
+        (err) => { console.error(err); }
+      )
   }
 
 }
