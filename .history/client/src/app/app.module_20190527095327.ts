@@ -21,6 +21,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserAnimationsModule,
     LayoutModule,
     OverlayModule,
+    FormsModule,
     HttpClientModule,
   ],
   providers: [
