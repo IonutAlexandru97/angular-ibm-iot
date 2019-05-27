@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="fix-nav">
+  <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <div class="nav-brand">IoT</div>
+  <span class="nav-spacer"></span>
+  <button class="hidde-sm" mat-icon-button [matMenuTriggerFor]="profile">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #profile="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-menu>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

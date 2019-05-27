@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { MatToolbarModule, MatSidenavModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule } from '@angular/material';
-import { TopnavComponent } from './components/topnav/topnav.component';
 
 @NgModule({
   imports: [
@@ -16,9 +15,6 @@ import { TopnavComponent } from './components/topnav/topnav.component';
     MatMenuModule,
     MatListModule
   ],
-  declarations: [
-    LayoutComponent,
-    TopnavComponent
-  ]
+  declarations: [LayoutComponent]
 })
 export class LayoutModule { }
