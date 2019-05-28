@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { NgModule } from '@angular/core';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [DashboardModule, RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class LayoutRoutingModule {}

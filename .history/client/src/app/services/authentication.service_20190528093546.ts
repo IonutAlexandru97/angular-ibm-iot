@@ -41,6 +41,15 @@ export class AuthenticationService {
         return this.token;
     }
 
+    public isLoggedin(): boolean {
+        const user = this.getUserDetails();
+        if (user){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public getUserDetails(): UserDetails {
         const token = this.getToken();
         let payload;
