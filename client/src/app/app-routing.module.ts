@@ -5,8 +5,8 @@ import 'hammerjs';
 
 
 const routes: Routes = [
-  //{ path: '', loadChildren: ''},
-  { path: 'login', loadChildren: './pages/authentication/login/login.module#LoginModule' }
+  { path: 'login', loadChildren: './pages/authentication/login/login.module#LoginModule' },
+  { path: 'register', loadChildren: './pages/authentication/register/register.module#RegisterModule'}
 ];
 
 @NgModule({
