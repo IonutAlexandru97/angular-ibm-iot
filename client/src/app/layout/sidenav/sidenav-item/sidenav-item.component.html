@@ -1,0 +1,29 @@
+<div [class.collapsed]="isCollapsed$ | async"
+     [class.dropdown-open]="dropdownOpen$ | async"
+     [ngClass]="levelClass"
+     class="sidenav-item">
+  <div *ngIf="item.type === 'subheading'" [ngClass]="item.customClass"
+       class="subheading">{{ item.name }}
+  </div>
+
+  <a (click)="handleClick()"
+     *ngIf="item.type !== 'subheading'"
+     [class.active]="isActive()"
+     class="sidenav-item-link"
+     fxLayout="row"
+     fxLayoutAlign="start center" matRipple>
+    <mat-icon *ngIf="level === 0" class="icon">{{ item.icon }}</mat-icon>
+    <div *ngIf="level > 0" class="text-icon" fxFlex="none">{{ getTextIcon(item) }}</div>
+    <span class="name">{{ item.name }}</span>
+    <span fxFlex><!-- fill space --></span>
+    <span *ngIf="item.badge" [style.background-color]="item.badgeColor" class="badge">{{ item.badge }}</span>
+    <mat-icon *ngIf="item.subItems && item.subItems.length > 0" [class.rotate]="dropdownOpen$ | async"
+              class="expand-indicator">
+      expand_more
+    </mat-icon>
+  </a>
+
+  <div [@dropdownOpen]="dropdownOpen$ | async" class="dropdown" fxLayout="column">
+    <client-sidenav-item *ngFor="let subItem of item.subItems" [item]="subItem" [level]="level+1"></client-sidenav-item>
+  </div>
+</div>
