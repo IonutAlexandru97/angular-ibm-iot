@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { fadeInUpAnimation } from 'src/@fury/animations/fade-in-up.animation';
+import { fadeInUpAnimation } from 'src/@client/animations/fade-in-up.animation';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';

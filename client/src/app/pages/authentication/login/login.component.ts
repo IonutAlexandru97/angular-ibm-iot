@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TokenPayload, AuthenticationService } from 'src/app/services/authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
-import { fadeInUpAnimation } from 'src/@fury/animations/fade-in-up.animation';
+import { fadeInUpAnimation } from 'src/@client/animations/fade-in-up.animation';
 
 @Component({
   selector: 'client-login',

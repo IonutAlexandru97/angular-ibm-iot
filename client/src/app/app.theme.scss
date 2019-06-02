@@ -13,11 +13,11 @@ $theme-primary: mat-palette($mat-blue, $theme-primary-hue);
 $theme-accent: mat-palette($mat-blue, $theme-accent-hue);
 $theme-warn: mat-palette($mat-red, $theme-warn-hue);
 
-.fury-default {
+.client-default {
   $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
 
-  @import "../@fury/styles/themes/default";
+  @import "../@client/styles/themes/default";
 
   background: $theme-background;
   color: $theme-text;
@@ -30,11 +30,11 @@ $theme-warn: mat-palette($mat-red, $theme-warn-hue);
   */
 }
 
-.fury-light {
+.client-light {
   $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
 
-  @import "../@fury/styles/themes/light";
+  @import "../@client/styles/themes/light";
 
   background: $theme-background;
   color: $theme-text;
@@ -47,11 +47,11 @@ $theme-warn: mat-palette($mat-red, $theme-warn-hue);
   */
 }
 
-.fury-dark {
+.client-dark {
   $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
 
-  @import "../@fury/styles/themes/dark";
+  @import "../@client/styles/themes/dark";
 
   background: $theme-background;
   color: $theme-text;
@@ -65,11 +65,11 @@ $theme-warn: mat-palette($mat-red, $theme-warn-hue);
   */
 }
 
-.fury-flat {
+.client-flat {
   $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
 
-  @import "../@fury/styles/themes/flat";
+  @import "../@client/styles/themes/flat";
 
   background: $theme-background;
   color: $theme-text;
