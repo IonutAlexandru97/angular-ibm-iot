@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { fadeInUpAnimation } from 'src/@fury/animations/fade-in-up.animation';
+import { fadeInUpAnimation } from 'src/@client/animations/fade-in-up.animation';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenPayload, AuthenticationService } from 'src/app/services/authentication.service';

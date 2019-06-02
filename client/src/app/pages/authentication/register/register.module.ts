@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing,module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from 'src/@fury/shared/material-components.module';
+import { MaterialModule } from 'src/@client/shared/material-components.module';
 
 @NgModule({
   imports: [

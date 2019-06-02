@@ -7,6 +7,8 @@ import { AuthenticationService } from './services/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material';
+import { LayoutModule } from './layout/layout.module';
+import { PendingInterceptorModule } from 'src/@client/shared/loading-indicator/pending-interceptor.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +19,9 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MAT_SNACK_B
     HttpClientModule,
 
 
-    //LayoutModule,
+    LayoutModule,
     OverlayModule,
+    PendingInterceptorModule
 
   ],
   providers: [

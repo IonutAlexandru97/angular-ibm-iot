@@ -1,0 +1,14 @@
+.client-card {
+  background: $theme-card;
+  color: $theme-text;
+
+  @include mat-elevation($elevation);
+
+  .client-card-header-subheading {
+    color: $theme-secondary-text;
+  }
+
+  .client-card-actions {
+    border-top: 1px solid $theme-divider;
+  }
+}
