@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { BackdropModule } from 'src/@client/shared/backdrop/backdrop.module';
+import { FooterModule } from './footer/footer.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { BackdropModule } from 'src/@client/shared/backdrop/backdrop.module';
     SidenavModule,
     ToolbarModule,
     NavigationModule,
-    BackdropModule
+    BackdropModule,
+    FooterModule
   ],
   declarations: [LayoutComponent]
 })

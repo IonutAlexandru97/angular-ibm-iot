@@ -76,7 +76,7 @@ $toolbar-search-dropdown-elevation: $elevation !default;
 $footer-background: $theme-app-bar !default;
 $footer-border-top: 1px solid $theme-divider !default;
 $footer-elevation: 0 !default;
-//@import "../../../app/layout/footer/footer.component.theme";
+@import "../../../app/layout/footer/footer.component.theme";
 
 //Title
 @import "../../shared/title/title.directive.theme";
