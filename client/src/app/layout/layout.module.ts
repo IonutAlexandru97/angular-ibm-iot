@@ -10,6 +10,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { BackdropModule } from 'src/@client/shared/backdrop/backdrop.module';
 import { FooterModule } from './footer/footer.module';
+import { ConfigPanelModule } from './config-panel/config-panel.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { FooterModule } from './footer/footer.module';
     ToolbarModule,
     NavigationModule,
     BackdropModule,
-    FooterModule
+    FooterModule,
+    ConfigPanelModule
   ],
   declarations: [LayoutComponent]
 })

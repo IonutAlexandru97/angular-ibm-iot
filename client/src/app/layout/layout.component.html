@@ -1,5 +1,12 @@
 <client-loading-indicator></client-loading-indicator>
 <client-backdrop #backdrop="clientBackdrop"></client-backdrop>
+<client-config-panel-toggle (openConfig)="openConfigPanel()"></client-config-panel-toggle>
+
+<!-- QUICKPANEL -->
+<client-sidebar #configPanel="clientSidebar" [backdrop]="backdrop" [invisibleBackdrop]="true" position="right">
+    <client-config-panel></client-config-panel>
+  </client-sidebar>
+  <!-- END QUICKPANEL -->
 
 <div class="container" fxLayout="column">
   <ng-container *ngIf="(toolbarPosition$ | async) === 'above-fixed'">
