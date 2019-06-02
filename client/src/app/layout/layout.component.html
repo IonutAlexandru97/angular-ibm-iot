@@ -1,4 +1,5 @@
 <client-loading-indicator></client-loading-indicator>
+<client-backdrop #backdrop="clientBackdrop"></client-backdrop>
 
 <div class="container" fxLayout="column">
   <ng-container *ngIf="(toolbarPosition$ | async) === 'above-fixed'">
@@ -55,6 +56,18 @@
 </div>
 
 <ng-template #toolbar>
+  <!-- TOOLBAR -->
+  <client-toolbar (openQuickPanel)="openQuickPanel()"
+                [hasNavigation]="topNavigation$ | async"
+                (openSidenav)="openSidenav()"
+                *ngIf="toolbarVisible$ | async"
+                fxFlex="none"></client-toolbar>
+  <!-- END TOOLBAR -->
+
+   <!-- NAVIGATION -->
+   <client-navigation *ngIf="topNavigation$ | async"
+   fxFlex="none"></client-navigation>
+<!-- END NAVIGATION -->
 </ng-template>
 
 <ng-template #footer>

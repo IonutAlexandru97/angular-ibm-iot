@@ -6,6 +6,9 @@ import { LoadingIndicatorModule } from 'src/@client/shared/loading-indicator/loa
 import { ClientSharedModule } from 'src/@client/client-shared.module';
 import { SidenavModule } from './sidenav/sidenav.module';
 import { RouterModule } from '@angular/router';
+import { ToolbarModule } from './toolbar/toolbar.module';
+import { NavigationModule } from './navigation/navigation.module';
+import { BackdropModule } from 'src/@client/shared/backdrop/backdrop.module';
 
 @NgModule({
   imports: [
@@ -14,7 +17,10 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     LoadingIndicatorModule,
     ClientSharedModule,
-    SidenavModule
+    SidenavModule,
+    ToolbarModule,
+    NavigationModule,
+    BackdropModule
   ],
   declarations: [LayoutComponent]
 })
