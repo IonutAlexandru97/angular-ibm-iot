@@ -13,7 +13,6 @@ import { AuthenticationService } from 'src/@client/services/authentication.servi
     MaterialModule,
     ReactiveFormsModule
   ],
-  declarations: [LoginComponent],
-  providers: [AuthenticationService]
+  declarations: [LoginComponent]
 })
 export class LoginModule { }

@@ -4,7 +4,7 @@ import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing,module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/@client/shared/material-components.module';
-import { AuthenticationService } from 'src/@client/services/authentication.service';
+
 
 @NgModule({
   imports: [
@@ -13,7 +13,6 @@ import { AuthenticationService } from 'src/@client/services/authentication.servi
     MaterialModule,
     ReactiveFormsModule
   ],
-  declarations: [RegisterComponent],
-  providers: [AuthenticationService]
+  declarations: [RegisterComponent]
 })
 export class RegisterModule { }

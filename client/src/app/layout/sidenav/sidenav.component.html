@@ -32,8 +32,8 @@
     <client-scrollbar>
       <div *ngIf="sidenavUserVisible$ | async" class="sidenav-user">
         <img class="sidenav-user-image" src="/assets/img/avatars/noavatar.png">
-        <h4 class="sidenav-user-name">Alexandru Ionut Candea</h4>
-        <h5 class="sidenav-user-email">ionut.alexandru.candea@ibm.com</h5>
+        <h4 class="sidenav-user-name">{{ details?.first_name }} {{ details?.last_name }}</h4>
+        <h5 class="sidenav-user-email">{{ details?.email }}</h5>
 
         <div class="sidenav-user-icons" fxLayout="row">
           <a [routerLink]="['/']" mat-icon-button>

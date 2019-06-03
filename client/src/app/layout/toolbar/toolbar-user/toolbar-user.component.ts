@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService, UserDetails } from 'src/@client/services/authentication.service';
 
 @Component({
   selector: 'client-toolbar-user',
@@ -9,10 +10,17 @@ import { Router } from '@angular/router';
 export class ToolbarUserComponent implements OnInit {
 
   isOpen: boolean;
+  details: UserDetails;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private auth: AuthenticationService) { }
 
   ngOnInit() {
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+    }, (err) =>{
+      console.error(err);
+    })
   }
 
   toggleDropdown() {

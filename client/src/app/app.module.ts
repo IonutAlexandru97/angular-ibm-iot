@@ -8,6 +8,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material';
 import { LayoutModule } from './layout/layout.module';
 import { PendingInterceptorModule } from 'src/@client/shared/loading-indicator/pending-interceptor.module';
+import { AuthGuardService } from 'src/@client/services/auth.guard';
+import { AuthenticationService } from 'src/@client/services/authentication.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,9 +37,11 @@ import { PendingInterceptorModule } from 'src/@client/shared/loading-indicator/p
       useValue: {
         duration: 5000,
         horizontalPosition: 'end',
-        verticalPosition: 'bottom'
+        verticalPosition: 'bottom',
       } as MatSnackBarConfig
-    }
+    },
+    AuthGuardService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

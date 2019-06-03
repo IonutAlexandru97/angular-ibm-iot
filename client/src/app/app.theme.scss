@@ -13,6 +13,7 @@ $theme-primary: mat-palette($mat-blue, $theme-primary-hue);
 $theme-accent: mat-palette($mat-blue, $theme-accent-hue);
 $theme-warn: mat-palette($mat-red, $theme-warn-hue);
 
+
 .client-default {
   $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);

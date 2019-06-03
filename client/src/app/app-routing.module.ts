@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import 'hammerjs';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthGuardService } from 'src/@client/services/auth.guard';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'forgot-password', loadChildren: './pages/authentication/forgot-password/forgot-password.module#ForgotPasswordModule'},
   { path: '',
     component: LayoutComponent,
+    canActivate: [AuthGuardService],
     children: [
       {
         path: '',

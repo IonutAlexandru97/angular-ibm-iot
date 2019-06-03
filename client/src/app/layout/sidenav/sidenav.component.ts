@@ -6,6 +6,7 @@ import { SidenavItem } from './sidenav-item/sidenav-item.interface';
 import { SidenavState } from './sidenav-state.enum';
 import { SidenavService } from './sidenav.service';
 import { ThemeService } from '../../../@client/services/theme.service';
+import { UserDetails, AuthenticationService } from 'src/@client/services/authentication.service';
 
 @Component({
   selector: 'client-sidenav',
@@ -29,16 +30,23 @@ export class SidenavComponent implements OnInit, OnDestroy {
   sidenavState: string;
 
   isCollapsedState: boolean;
+  details: UserDetails;
 
   constructor(private router: Router,
               private sidenavService: SidenavService,
-              private themeService: ThemeService) {
+              private themeService: ThemeService,
+              private auth: AuthenticationService) {
   }
 
   ngOnInit() {
     this.items$ = this.sidenavService.items$.pipe(
       map((items: SidenavItem[]) => this.sidenavService.sortRecursive(items, 'position'))
     );
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+    }, (err) =>{
+      console.error(err);
+    })
   }
 
   toggleCollapsed() {
