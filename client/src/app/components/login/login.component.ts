@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
+import { AuthenticationService, TokenPayload } from 'src/@client/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +23,6 @@ export class LoginComponent {
     }, err => console.log(err))
   }
 
-  
+
 
 }

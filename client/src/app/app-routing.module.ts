@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { AuthGuardService } from './services/auth.guard';
 import 'hammerjs';
 import { LayoutComponent } from './layout/layout.component';
 
@@ -29,6 +28,6 @@ const routes: Routes = [
     anchorScrolling: 'enabled'
   })],
   exports: [RouterModule],
-  providers: [AuthGuardService]
+  providers: []
 })
 export class AppRoutingModule { }

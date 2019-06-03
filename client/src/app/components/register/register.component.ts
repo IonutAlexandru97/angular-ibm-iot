@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService, TokenPayload } from 'src/app/services/authentication.service';
+import { AuthenticationService, TokenPayload } from 'src/@client/services/authentication.service';
+
 
 @Component({
   selector: 'app-register',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserDetails, AuthenticationService } from 'src/app/services/authentication.service';
+import { UserDetails, AuthenticationService } from 'src/@client/services/authentication.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +19,6 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  
+
 
 }
