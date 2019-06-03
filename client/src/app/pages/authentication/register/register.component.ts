@@ -3,7 +3,7 @@ import { fadeInUpAnimation } from 'src/@client/animations/fade-in-up.animation';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
-import { TokenPayload, AuthenticationService } from 'src/@client/services/authentication.service';
+import { TokenPayload, AuthenticationService, UserDetails } from 'src/@client/services/authentication.service';
 
 @Component({
   selector: 'client-register',
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   }
+  details: UserDetails;
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -38,11 +39,17 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
       passwordConfirm: ['', Validators.required]
+    });
+    this.auth.profile().subscribe(user => {
+      this.details = user;
+    }, (err) => {
+      console.error(err);
     })
   }
 
   register(){
     this.auth.register(this.credentials).subscribe(() => {
+      localStorage.setItem('isLoggedin', 'true');
       this.router.navigate(['/']);
       this.snackbar.open('Registered in with success!!', 'Welcome to your Dashboard!', {
         duration: 10000
