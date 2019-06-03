@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'client-toolbar-user',
@@ -9,7 +10,7 @@ export class ToolbarUserComponent implements OnInit {
 
   isOpen: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,12 @@ export class ToolbarUserComponent implements OnInit {
 
   onClickOutside() {
     this.isOpen = false;
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    localStorage.removeItem('isLoggedin');
+    this.router.navigate(['/login']);
   }
 
 }

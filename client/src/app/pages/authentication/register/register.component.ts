@@ -12,6 +12,13 @@ import { TokenPayload, AuthenticationService } from 'src/@client/services/authen
   animations: [fadeInUpAnimation]
 })
 export class RegisterComponent implements OnInit {
+
+  constructor(private router: Router,
+    private fb: FormBuilder,
+    private cd: ChangeDetectorRef,
+    private auth: AuthenticationService,
+    private snackbar: MatSnackBar) { }
+
   form: FormGroup;
   inputType = 'password';
   visible = false
@@ -22,12 +29,6 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   }
-
-  constructor(private router: Router,
-              private fb: FormBuilder,
-              private cd: ChangeDetectorRef,
-              private auth: AuthenticationService,
-              private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     this.auth.register(this.credentials).subscribe(() => {
+      this.router.navigate(['/']);
       this.snackbar.open('Registered in with success!!', 'Welcome to your Dashboard!', {
         duration: 10000
       }), (err) => {
