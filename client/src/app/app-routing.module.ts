@@ -17,6 +17,10 @@ const routes: Routes = [
         path: '',
         loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
         pathMatch: 'full'
+      },
+      {
+        path: 'chat',
+        loadChildren: './pages/chat/chat.module#ChatModule'
       }
     ]
   }

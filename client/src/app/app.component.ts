@@ -38,6 +38,14 @@ export class AppComponent {
         position: 11,
         badge: '0',
         badgeColor: '#2196F3'
+      },
+      {
+        name: 'Chat',
+        routeOrFunction: '/chat',
+        icon: 'chat',
+        position: 12,
+        badge: '0',
+        badgeColor: '#2196F3'
       }
     ])
   }

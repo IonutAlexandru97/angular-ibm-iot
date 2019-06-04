@@ -1,0 +1,20 @@
+
+<h1 align="center">Angular Bot</h1>
+
+<ng-container *ngFor="let message of messages | async">
+  <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                      'to': message.sentBy === 'user'}">
+  {{ message.content }}
+  </div>
+</ng-container>
+<div class="example-container">
+    <mat-form-field>
+      <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" matInput placeholder="Input">
+</mat-form-field>
+</div>
+<div class="example-button-row">
+    <button matSuffix mat-icon-button color="primary" (click)="sendMessage()">
+    <mat-icon>send</mat-icon>
+    </button>
+</div>
+

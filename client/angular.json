@@ -6,12 +6,12 @@
   "schematics": {
     "@schematics/angular:component": {
       "spec": false,
-      "prefix": "client",
+      "prefix": "",
       "styleext": "scss"
     },
     "@schematics/angular:directive": {
       "spec": false,
-      "prefix": "client"
+      "prefix": ""
     },
     "@schematics/angular:service": {
       "spec": false
