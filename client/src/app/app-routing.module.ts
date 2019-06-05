@@ -21,6 +21,10 @@ const routes: Routes = [
       {
         path: 'chat',
         loadChildren: './pages/chat/chat.module#ChatModule'
+      },
+      {
+        path: 'inbox',
+        loadChildren: './pages/inbox/inbox.module#InboxModule'
       }
     ]
   }
