@@ -1,6 +1,6 @@
 var nodeMailer = require('nodemailer');
 
-module.exports.sendMail = (req, res, next) => {
+module.exports.resetEmail = (req, res, next) => {
     let transporter = nodeMailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
@@ -12,9 +12,9 @@ module.exports.sendMail = (req, res, next) => {
     });
 
     let mailOptions = {
-        to: 'ionut_alexandru.candea@yahoo.com',
-        subject: req.body.subject,
-        text: req.body.message
+        to: req.body.email,
+        subject: 'Password reset',
+        text: 'Here should be a reset token!'
     };
     
     transporter.sendMail(mailOptions, (error, info) => {

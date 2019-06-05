@@ -9,7 +9,7 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 router.get('/profile',verifyToken.verifyJwtToken, userController.profile);
 router.post('/ask', chatBotController.ask)
-router.post('/send-email', emailController.sendMail);
+router.post('/reset', emailController.resetEmail);
 
 
 module.exports = router;

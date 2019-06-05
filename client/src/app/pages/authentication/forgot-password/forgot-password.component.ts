@@ -15,34 +15,30 @@ export class ForgotPasswordComponent implements OnInit {
 
   data = {}
   form = this.fb.group({
-    subject: [null, Validators.required],
-    body: [null, Validators.required]
+    email: [null, Validators.required]
   });
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
-    private sendMail: ForgotPasswordService
+    private resetEmail: ForgotPasswordService
   ) { }
 
   ngOnInit() {
   }
 
- // resetPassword(){
- //   this.snackbar.open('Password successfully reset!!', 'A notification was sent to your e-mail address', {
- //     duration: 10000
- //   });
- //   this.router.navigate(['/login']);
- // }
-
   resetPassword(){
-    this.sendMail.send(this.data)
-    .subscribe(
-      res => {
-        console.log(res)
-      },
-      err => console.log(err)
-    )
+  this.resetEmail.reset(this.data)
+  .subscribe(
+    res => {
+      console.log(res)
+    },
+    err => console.log(err)
+  )
+    this.snackbar.open('Password successfully reset!!', 'A notification was sent to your e-mail address', {
+      duration: 10000
+    });
+    this.router.navigate(['/login']);
   }
 
 }

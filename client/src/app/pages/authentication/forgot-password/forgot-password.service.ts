@@ -6,11 +6,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ForgotPasswordService {
 
-private _emailAPI = 'http://localhost:3000/api/send-email';
+private _resetAPI = 'http://localhost:3000/api/reset';
 
 constructor(private http: HttpClient) { }
 
-send(message){
-  return this.http.post<any>(this._emailAPI, message);
+reset(message){
+  return this.http.post<any>(this._resetAPI, message);
 }
 }
