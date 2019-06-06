@@ -4,7 +4,7 @@
     <mat-drawer-content class="chat-drawer-content" fxLayout="column">
       <div class="toolbar app-bar border-bottom" fxLayout="row" fxFlex="none" fxLayoutAlign="space-between center">
         <div class="current-contact" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="12px">
-          <img class="avatar" src="assets/img/avatars/noavatar.png">
+          <img class="avatar" src="assets/img/avatars/bot.png">
           <div fxLayout="column">
             <span class="name">Angular Bot</span>
             <span class="status secondary-text">Online</span>
@@ -16,7 +16,7 @@
           <div class="chat-message" *ngFor="let message of messages | async" [ngSwitch]="message.sentBy" fxLayout="column"
             fxLayoutAlign="end start">
             <div class="partner"*ngSwitchCase="'bot'" fxFlexAlign="start" fxLayout="row" fxLayoutAlign="start start">
-              <img class="avatar" src="assets/img/avatars/noavatar.png">
+              <img class="avatar" src="assets/img/avatars/bot.png">
               <span class="message card">{{ message.content }}</span>
             </div>
             <div class="me" *ngSwitchCase="'user'" fxFlexAlign="end" fxLayout="row" fxLayoutAlign="end start">

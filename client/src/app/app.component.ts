@@ -32,15 +32,15 @@ export class AppComponent {
         pathMatchExact: true
       },
       {
-        name: 'Inbox',
+        name: 'Mail Support',
         routeOrFunction: '/inbox',
-        icon: 'inbox',
+        icon: 'contact_support',
         position: 11,
         badge: '0',
         badgeColor: '#2196F3'
       },
       {
-        name: 'Chat',
+        name: 'Live Support',
         routeOrFunction: '/chat',
         icon: 'chat',
         position: 12,
