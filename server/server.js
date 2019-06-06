@@ -1,37 +1,29 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var session = require("express-session");
-var passport = require('passport');
-var flash  = require('connect-flash');
-var cookieParser = require('cookie-parser');
-var routes = require('./routes');
-var cors = require('cors');
+require('./config/config');
+require('./config/db');
+require('./config/passport');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 var app = express();
+const routes = require('./routes');
+const passport = require('passport');
+const logger = require('morgan');
 
-
-//Configure server
-app.use(session({
-  key: 'user_sid',
-  secret: 'goN6DJJC6E287cC77kkdYuNuAyWnz7Q3iZj8',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-      expires: 600000
-  }
-}));
-app.use(cors());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
+app.use(logger('dev'));
 
-//App routes
-app.use(routes(express.Router()));
+app.use('/api', routes);
 
-
-app.set('port', process.env.PORT || 8000);
-app.listen(app.get('port'), function () {
-  console.log("Connected on:", app.get('port'));
+//error handler
+app.use((err, req, res, next) => {
+    if (err.name === 'ValidationError') {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors)
+    }
 });
+
+app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));

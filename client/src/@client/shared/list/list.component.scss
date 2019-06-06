@@ -1,0 +1,107 @@
+@import "var";
+
+.client-list-table {
+  display: flex;
+  flex-direction: column;
+
+  .client-list-header {
+    padding-left: $spacing;
+    padding-right: $spacing;
+    height: 60px;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    @include media-xs {
+      height: auto;
+      padding-top: $spacing;
+      padding-bottom: $spacing;
+    }
+
+    .client-list-name {
+      font-size: 20px;
+      line-height: 32px;
+      font-weight: 500;
+      padding-right: $spacing;
+
+      @include media-xs {
+        border-right: none;
+      }
+    }
+
+    .client-filter-input {
+      font-size: 16px;
+      line-height: 1.125;
+      border: none;
+      height: 32px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .client-filter-input-icon {
+      width: 1.2em;
+      vertical-align: bottom;
+      height: 22px;
+      font-size: 22px;
+      margin-right: $padding-xs;
+    }
+  }
+
+  .mat-header-row .mat-header-cell .mat-sort-header-button {
+    text-transform: uppercase;
+  }
+
+  .mat-cell.image-cell, .mat-header-cell.image-cell {
+    flex: 0;
+    min-width: 35px + $spacing;
+
+    img {
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      margin-right: $spacing;
+      vertical-align: middle;
+    }
+  }
+
+  .mat-cell.actions-cell, .mat-header-cell.actions-cell {
+    flex: 0;
+    min-width: 40px;
+    overflow: visible;
+  }
+
+  .paginator {
+    display: block;
+  }
+
+  /**
+    Responsive Table
+   */
+  .client-mobile-label {
+    display: none;
+  }
+
+  @include media-xs {
+    .client-mobile-label {
+      width: 80px;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .mat-header-row {
+      display: none;
+    }
+
+    .mat-row {
+      flex-direction: column;
+      align-items: start;
+      padding: $spacing/3 $spacing;
+      min-height: auto;
+    }
+
+    .mat-cell {
+      padding-top: $spacing/3;
+    }
+  }
+}

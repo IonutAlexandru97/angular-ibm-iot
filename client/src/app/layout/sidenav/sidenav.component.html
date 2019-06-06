@@ -1,0 +1,55 @@
+<div class="sidenav" fxLayout="column">
+  <div class="sidenav-toolbar" fxLayout="row" fxLayoutAlign="start center">
+    <div class="sidenav-toolbar-icon">
+        <svg viewBox="0 0 512 512">
+            <title>icon</title>
+            <path
+              d="m512 186v-30h-71v-85h-85v-71h-30v71h-55v-71h-30v71h-55v-71h-30v71h-85v85h-71v30h71v55h-71v30h71v55h-71v30h71v85h85v71h30v-71h55v71h30v-71h55v71h30v-71h85v-85h71v-30h-71v-55h71v-30h-71v-55zm-101 225h-310v-310h310zm0 0"/><path d="m360.023438 300.6875v-148.710938h-148.710938l-59.335938 59.335938v148.710938h148.710938zm-178.046876 29.335938v-106.285157l41.761719-41.761719h106.285157v106.285157l-41.761719 41.761719zm0 0">
+            </path>
+          </svg>
+    </div>
+    <div [routerLink]="['/']" class="sidenav-toolbar-logo">
+      <svg viewBox="0 0 138.16 70.27" xmlns="http://www.w3.org/2000/svg">
+        <title>Logo</title>
+      <text x="20" y="60" font-size="80">IoT</text>
+      </svg>
+
+    </div>
+
+
+    <span fxFlex>
+      <!-- fill space --></span>
+
+    <div fxFlexAlign="center" fxHide fxShow.gt-md>
+      <button (click)="toggleCollapsed()" class="sidenav-toolbar-collapse-toggle" mat-icon-button>
+        <mat-icon *ngIf="!collapsed" class="sidenav-toolbar-collapse-icon">radio_button_checked</mat-icon>
+        <mat-icon *ngIf="collapsed" class="sidenav-toolbar-collapse-icon">radio_button_unchecked</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="sidenav-items">
+    <client-scrollbar>
+      <div *ngIf="sidenavUserVisible$ | async" class="sidenav-user">
+        <img class="sidenav-user-image" src="/assets/img/avatars/noavatar.png">
+        <h4 class="sidenav-user-name">{{ details?.first_name }} {{ details?.last_name }}</h4>
+        <h5 class="sidenav-user-email">{{ details?.email }}</h5>
+
+        <div class="sidenav-user-icons" fxLayout="row">
+          <a [routerLink]="['/']" mat-icon-button>
+            <mat-icon>dashboard</mat-icon>
+          </a>
+          <a [routerLink]="['/chat']" mat-icon-button>
+            <mat-icon>chat</mat-icon>
+          </a>
+          <a [routerLink]="['/login']" mat-icon-button>
+            <mat-icon>exit_to_app</mat-icon>
+          </a>
+        </div>
+      </div>
+
+      <client-sidenav-item *ngFor="let item of items$ | async" [item]="item" [level]="0"></client-sidenav-item>
+    </client-scrollbar>
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+@include mat-core();
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body,
+html {
+	margin: 0 auto;
+	height: 100% !important;
+}
+
+.app-Black-theme {
+	$angular-app-black-primary: mat-palette($mat-grey, 100);
+	$angular-app-black-accent: mat-palette($mat-grey, 500);
+	$angular-app-black-warn: mat-palette($mat-grey, 900);
+	  // Create the theme object (a Sass map containing all of the palettes).
+		$angular-app-black-theme: mat-light-theme($angular-app-black-primary, $angular-app-black-accent, $angular-app-black-warn); 
+	  // Include theme styles for core and each component used in your app.
+	  // Alternatively, you can import and @include the theme mixins for each component
+	  // that you are using.
+	  @include angular-material-theme($angular-app-black-theme); 
+  }
+  
+  .app-Blue-theme {
+	$angular-app-blue-primary: mat-palette($mat-indigo, 100);
+	$angular-app-blue-accent: mat-palette($mat-indigo, 500);
+	$angular-app-blue-warn: mat-palette($mat-indigo, 900);
+	$angular-app-blue-theme: mat-light-theme($angular-app-blue-primary, $angular-app-blue-accent, $angular-app-blue-warn);
+	@include angular-material-theme($angular-app-blue-theme);
+}

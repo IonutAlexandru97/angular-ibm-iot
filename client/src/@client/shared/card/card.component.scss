@@ -1,0 +1,72 @@
+@import "var";
+
+.client-card {
+  border-radius: $border-radius;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 100%;
+}
+
+.client-card-header {
+  padding: $spacing;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+
+  .client-card-header-heading-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .client-card-header-heading {
+      white-space: nowrap;
+      @include mat-typography-level-to-styles($config, subheading-1);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
+    }
+
+    .client-card-header-subheading {
+      white-space: nowrap;
+      font-size: 13px;
+      @include mat-typography-level-to-styles($config, body-1);
+    }
+  }
+
+  .client-card-header-actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: $spacing;
+  }
+}
+
+.client-card-content {
+  padding: 0 $spacing $spacing;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.client-card-actions {
+  padding: $spacing/3 $spacing/1.5;
+  display: flex;
+  flex-direction: row;
+
+  button + button {
+    margin-left: $spacing/3;
+  }
+
+  &.client-card-actions-align-end {
+    justify-content: flex-end;
+  }
+}

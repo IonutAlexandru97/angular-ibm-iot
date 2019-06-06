@@ -1,0 +1,30 @@
+<div class="toolbar" fxLayout="row" fxLayoutAlign="space-between">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <client-toolbar-sidenav-mobile-toggle (openSidenav)="openSidenav.emit()"></client-toolbar-sidenav-mobile-toggle>
+
+    <div [fxShow.gt-sm]="topNavigation$ | async" [fxShow.xs]="false" [routerLink]="['/']" class="toolbar-logo" fxShow>
+      <svg viewBox="0 0 512 512">
+        <title>icon</title>
+        <path
+          d="m512 186v-30h-71v-85h-85v-71h-30v71h-55v-71h-30v71h-55v-71h-30v71h-85v85h-71v30h71v55h-71v30h71v55h-71v30h71v85h85v71h30v-71h55v71h30v-71h55v71h30v-71h85v-85h71v-30h-71v-55h71v-30h-71v-55zm-101 225h-310v-310h310zm0 0"/><path d="m360.023438 300.6875v-148.710938h-148.710938l-59.335938 59.335938v148.710938h148.710938zm-178.046876 29.335938v-106.285157l41.761719-41.761719h106.285157v106.285157l-41.761719 41.761719zm0 0">
+        </path>
+      </svg>
+    </div>
+
+
+  </div>
+
+  <div fxLayout="row">
+
+    <client-toolbar-fullscreen-toggle class="toolbar-button"></client-toolbar-fullscreen-toggle>
+
+
+    <client-toolbar-notifications class="toolbar-button"></client-toolbar-notifications>
+
+    <client-toolbar-user class="toolbar-button"></client-toolbar-user>
+
+    <client-toolbar-quickpanel-toggle (openQuickPanel)="openQuickPanel.emit()"
+                                    class="toolbar-button"></client-toolbar-quickpanel-toggle>
+  </div>
+</div>
+
