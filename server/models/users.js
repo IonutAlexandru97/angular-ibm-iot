@@ -51,5 +51,3 @@ mongoose.model('User', userSchema);
 
 
 module.exports = mongoose.model('User');
-
-//http://www.codaffection.com/mean-stack-tutorial/mean-stack-login-and-logout-with-angular-6/#more-3090

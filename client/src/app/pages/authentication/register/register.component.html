@@ -32,7 +32,7 @@
 
         <mat-form-field fxFlex="grow">
           <mat-label>Password</mat-label>
-          <input [(ngModel)]="credentials.password" matInput [type]="inputType" formControlName="password" required>
+          <input (keydown.enter)="register()" [(ngModel)]="credentials.password" matInput [type]="inputType" formControlName="password" required>
           <button type="button" mat-icon-button matSuffix (click)="toggleVisibility()" matTooltip="Toggle Visibility">
             <mat-icon *ngIf="visible">visibility</mat-icon>
             <mat-icon *ngIf="!visible">visibility_off</mat-icon>

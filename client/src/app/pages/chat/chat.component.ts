@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Message, ChatService } from './chat.service';
 import 'rxjs/add/operator/scan';
 import { FormControl } from '@angular/forms';
+import { ScrollbarDirective } from 'src/@client/shared/scrollbar/scrollbar.directive';
 
 @Component({
   selector: 'client-chat',
@@ -14,8 +15,16 @@ export class ChatComponent implements OnInit {
   drawerMode = 'side';
   messages: Observable<Message[]>;
   formValue: string;
-  replyCtrl: FormControl
-  constructor(public chat: ChatService) { }
+  replyCtrl: FormControl;
+  public message: Message;
+
+
+  @ViewChild('messagesScroll', {read: ScrollbarDirective}) messagesScroll: ScrollbarDirective;
+
+  constructor(
+    public chat: ChatService,
+    private cd: ChangeDetectorRef
+    ) {}
 
   ngOnInit() {
     this.replyCtrl = new FormControl();
@@ -24,7 +33,12 @@ export class ChatComponent implements OnInit {
   }
 
   sendMessage(){
-    this.chat.converse(this.formValue);
-    this.formValue = '';
+    this.formValue = this.replyCtrl.value;
+    this.chat.converse(this.replyCtrl.value);
+    this.cd.markForCheck();
+    this.replyCtrl.reset();
+    setTimeout(() => {
+      this.messagesScroll.scrollbarRef.getScrollElement().scrollTo(0, this.messagesScroll.scrollbarRef.getScrollElement().scrollHeight);
+    }, 10);
   }
 }

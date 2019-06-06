@@ -20,11 +20,15 @@ const routes: Routes = [
       },
       {
         path: 'chat',
-        loadChildren: './pages/chat/chat.module#ChatModule'
+        loadChildren: './pages/chat/chat.module#ChatModule',
       },
       {
         path: 'inbox',
         loadChildren: './pages/inbox/inbox.module#InboxModule'
+      },
+      {
+        path: 'maps',
+        loadChildren: './pages/maps/google-maps/google-maps.module#GoogleMapsModule'
       }
     ]
   }

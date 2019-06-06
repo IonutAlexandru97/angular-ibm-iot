@@ -10,6 +10,8 @@ import { LayoutModule } from './layout/layout.module';
 import { PendingInterceptorModule } from 'src/@client/shared/loading-indicator/pending-interceptor.module';
 import { AuthGuardService } from 'src/@client/services/auth.guard';
 import { AuthenticationService } from 'src/@client/services/authentication.service';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,11 +20,13 @@ import { AuthenticationService } from 'src/@client/services/authentication.servi
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
-
     LayoutModule,
     OverlayModule,
-    PendingInterceptorModule
+    PendingInterceptorModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsApiKey
+    })
+
 
   ],
   providers: [

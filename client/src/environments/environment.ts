@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-
+  googleMapsApiKey: 'AIzaSyDcjWMZ1dl9NZDsl9va05fdvgyEvTonXTE',
   dialogFlow: {
     smartBot: '22eed2445f774cb9a2eb8e80506c5367'
   }

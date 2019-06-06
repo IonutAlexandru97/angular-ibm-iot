@@ -46,6 +46,12 @@ export class AppComponent {
         position: 12,
         badge: '0',
         badgeColor: '#2196F3'
+      },
+      {
+        name: 'Maps',
+        routeOrFunction: '/maps',
+        icon: 'place',
+        position: 13
       }
     ])
   }

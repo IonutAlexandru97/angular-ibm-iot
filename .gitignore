@@ -2,3 +2,4 @@ node_modules
 .history
 .vscode
 server/config/chatbot.js
+client/src/environments/environment.ts

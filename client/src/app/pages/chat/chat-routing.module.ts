@@ -3,7 +3,7 @@ import { ChatComponent } from './chat.component';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: '', component: ChatComponent },
+  { path: '', component: ChatComponent, data: { scrollDisabled: true }},
 ];
 
 @NgModule({

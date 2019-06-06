@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChatService } from './chat.service';
 import { ChatRoutingModule } from './chat-routing.module';
 import { MaterialModule } from 'src/@client/shared/material-components.module';
+import { ScrollbarModule } from 'src/@client/shared/scrollbar/scrollbar.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { MaterialModule } from 'src/@client/shared/material-components.module';
     FormsModule,
     ChatRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScrollbarModule
   ],
   declarations: [
     ChatComponent,
