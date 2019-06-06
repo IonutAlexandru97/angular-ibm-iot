@@ -52,6 +52,12 @@ export class AppComponent {
         routeOrFunction: '/maps',
         icon: 'place',
         position: 13
+      },
+      {
+        name:'Calendar',
+        routeOrFunction: '/calendar',
+        icon: 'calendar_today',
+        position: 14
       }
     ])
   }

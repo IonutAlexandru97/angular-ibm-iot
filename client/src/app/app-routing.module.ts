@@ -29,6 +29,10 @@ const routes: Routes = [
       {
         path: 'maps',
         loadChildren: './pages/maps/google-maps/google-maps.module#GoogleMapsModule'
+      },
+      {
+        path: 'calendar',
+        loadChildren: './pages/calendar/calendar.module#CalendarAppModule'
       }
     ]
   }
