@@ -1,0 +1,12 @@
+<div class="dashboard padding" fxLayout="column" [fxLayoutGap]="gap">
+    <div fxFlex="noshrink" fxLayout="column" [fxLayoutGap]="gap" fxLayout.gt-lg="row">
+        <div fxLayout="column" [fxLayoutGap]="gap" [fxFlex]="col(2)"
+        fxLayout.gt-sm="row">
+        <div
+        fxFlex="auto" [fxFlex.gt-sm]="col(4)">
+        <client-line-chart-widget class="route-animations-elements" [data]="clicksData$ | async"
+                                [options]="totalClicksOptions"></client-line-chart-widget>
+      </div>
+      </div>
+    </div>
+</div>
