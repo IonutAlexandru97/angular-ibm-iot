@@ -3,6 +3,7 @@ import { ThemeService } from 'src/@client/services/theme.service';
 import { MatIconRegistry } from '@angular/material';
 import { DOCUMENT } from '@angular/common';
 import { SidenavService } from './layout/sidenav/sidenav.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,14 @@ export class AppComponent {
               private sidenavService: SidenavService,
               private iconRegistry: MatIconRegistry,
               private render: Renderer2,
-              @Inject(DOCUMENT) private document: Document){
+              @Inject(DOCUMENT) private document: Document,
+              private router: Router){
+    this.router.events.subscribe(event => {
+      if(event instanceof NavigationEnd){
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
+      }
+    });
     this.iconRegistry.setDefaultFontSetClass('material-icons');
     this.themeService.theme$.subscribe(theme => {
       if(theme[0]){

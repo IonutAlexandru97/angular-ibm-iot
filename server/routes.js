@@ -10,6 +10,7 @@ router.post('/login', userController.login);
 router.get('/profile',verifyToken.verifyJwtToken, userController.profile);
 router.post('/ask', chatBotController.ask)
 router.post('/reset', emailController.resetEmail);
+router.post('/send', emailController.sendEmail);
 
 router.get('/weather', function(req, res, next){
     unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?id=2172797&units=metric&mode=JSON&q=Brasov%2CRO")
