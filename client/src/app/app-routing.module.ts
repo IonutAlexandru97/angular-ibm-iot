@@ -23,10 +23,6 @@ const routes: Routes = [
         loadChildren: './pages/chat/chat.module#ChatModule',
       },
       {
-        path: 'inbox',
-        loadChildren: './pages/inbox/inbox.module#InboxModule'
-      },
-      {
         path: 'maps',
         loadChildren: './pages/maps/google-maps/google-maps.module#GoogleMapsModule'
       },

@@ -40,6 +40,15 @@
           </button>
         </mat-form-field>
       </div>
+      <div class="compose" fxFlex="0 0 auto" fxLayout="row" fxLayoutAlign="center center">
+        <button (click)="openCompose()" color="primary" fxFlex fxHide fxShow.gt-sm mat-raised-button type="button">
+          <mat-icon class="icon">edit</mat-icon>
+          Our bot didn't helped you? Write an e-mail to our team by clicking here!
+        </button>
+        <button color="primary" fxHide.gt-sm mat-mini-fab type="button">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>
     </mat-drawer-content>
   </mat-drawer-container>
 </div>
