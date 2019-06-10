@@ -1,0 +1,15 @@
+<mat-list fxFlex="grow" clientScrollbar class="navigation">
+  <div matSubheader>Inbox</div>
+
+  <mat-list-item class="secondary-text" matRipple [routerLink]="['/inbox/sent']" routerLinkActive="active">
+    <mat-icon matListIcon>send</mat-icon>
+    <div matLine [fxHide]="responsive" [fxShow.gt-sm]="responsive">Sent Mails</div>
+  </mat-list-item>
+
+  <mat-divider></mat-divider>
+
+  <mat-list-item class="secondary-text" matRipple [routerLink]="['/inbox/trash']" routerLinkActive="active">
+    <mat-icon matListIcon>delete</mat-icon>
+    <div matLine [fxHide]="responsive" [fxShow.gt-sm]="responsive">Trash</div>
+  </mat-list-item>
+</mat-list>

@@ -43,7 +43,7 @@ export class AppComponent {
         name: 'Mail Support',
         routeOrFunction: '/inbox',
         icon: 'contact_support',
-        position: 11,
+        position: 12,
         badge: '0',
         badgeColor: '#2196F3'
       },
@@ -51,7 +51,7 @@ export class AppComponent {
         name: 'Live Support',
         routeOrFunction: '/chat',
         icon: 'chat',
-        position: 12,
+        position: 11,
         badge: '0',
         badgeColor: '#2196F3'
       },
