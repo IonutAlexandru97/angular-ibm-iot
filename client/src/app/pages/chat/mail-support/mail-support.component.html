@@ -3,20 +3,20 @@
 <mat-dialog-content fxLayout="column">
   <mat-form-field>
     <mat-label>From</mat-label>
-    <input value="ionut_alexandru.candea@yahoo.com" matInput disabled>
+    <input value='{{ details.email }}' matInput disabled>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>To</mat-label>
-    <input matInput required>
+    <input value="ionut_alexandru.candea@yahoo.com"  [(ngModel)]="data.email" matInput disabled>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Subject</mat-label>
-    <input matInput>
+    <input [(ngModel)]="data.subject" matInput>
   </mat-form-field>
 
-  <quill-editor [style]="{ height: '100px' }"
+  <quill-editor [(ngModel)]="data.text" [style]="{ height: '100px' }"
                 placeholder="Write your message"></quill-editor>
 </mat-dialog-content>
 
@@ -24,7 +24,7 @@
   <button type="button" mat-icon-button>
     <mat-icon>attach_file</mat-icon>
   </button>
-  <button type="button" mat-raised-button color="primary">
+  <button type="button" mat-raised-button color="primary" (click)="send()">
     SEND
   </button>
 </mat-dialog-actions>

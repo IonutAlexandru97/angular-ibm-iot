@@ -4,8 +4,8 @@ import { Message, ChatService } from './chat.service';
 import 'rxjs/add/operator/scan';
 import { FormControl } from '@angular/forms';
 import { ScrollbarDirective } from 'src/@client/shared/scrollbar/scrollbar.directive';
-import { MatDialog } from '@angular/material';
-import { InboxComposeComponent } from './inbox-compose/inbox-compose.component';
+import { MatDialog } from '@angular/material';;
+import { MailSupportComponent } from './mail-support/mail-support.component';
 
 @Component({
   selector: 'client-chat',
@@ -36,7 +36,7 @@ export class ChatComponent implements OnInit {
   }
 
   openCompose(){
-    this.dialog.open(InboxComposeComponent);
+    this.dialog.open(MailSupportComponent);
   }
 
   sendMessage(){

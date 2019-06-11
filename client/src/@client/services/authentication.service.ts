@@ -17,7 +17,7 @@ interface TokenResponse {
 }
 
 export interface UserDetails {
-    _id: string;
+    _id?: string;
     first_name?: string;
     last_name?: string;
     email?: string;
