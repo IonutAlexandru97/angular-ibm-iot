@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+var JWT_SECRET = 'secret'; 
 
 var userSchema = Schema({
     username: String,
@@ -37,9 +38,9 @@ userSchema.methods.generateJwt = function() {
         last_name: this.last_name,
         email: this.email,
         password: this.password
-    }, process.env.JWT_SECRET,
+    },JWT_SECRET,
     {
-        expiresIn: process.env.JWT_EXP
+        expiresIn: 20000
     });
 }
 
