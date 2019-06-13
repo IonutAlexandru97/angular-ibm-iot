@@ -1,5 +1,4 @@
 
-require('./config/config');
 require('./config/db');
 require('./config/passport');
 
@@ -16,15 +15,6 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(passport.initialize());
 app.use(logger('dev'));
-
-////error handler
-//app.use((err, req, res, next) => {
-//    if (err.name === 'ValidationError') {
-//        var valErrors = [];
-//        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
-//        res.status(422).send(valErrors)
-//    }
-//});
 
 const PORT = process.env.PORT || 3000;
 
