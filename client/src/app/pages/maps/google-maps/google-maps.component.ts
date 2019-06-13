@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoogleMapsComponent implements OnInit {
 
-  lat: number = 45.3855;
-  lng: number = 25.3622;
+lat: any;
+lng: any;
 
-  constructor() { }
+  constructor() {
+    if(navigator){
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+      });
+    }
+  }
 
   ngOnInit() {
   }
