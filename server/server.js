@@ -26,5 +26,7 @@ app.use(logger('dev'));
 //    }
 //});
 
+const PORT = process.env.PORT || 3000;
+
 app.use('/api', routes);
-app.listen(port, () => console.log(`Server started at port : ${port}`));
+app.listen(PORT, () => console.log(`Server started at port : ${PORT}`));
