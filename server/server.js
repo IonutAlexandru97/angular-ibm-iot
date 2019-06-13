@@ -9,7 +9,6 @@ var app = express();
 const routes = require('./routes');
 const passport = require('passport');
 const logger = require('morgan');
-const port = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
