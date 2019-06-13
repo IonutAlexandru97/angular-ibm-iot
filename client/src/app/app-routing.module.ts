@@ -29,6 +29,10 @@ const routes: Routes = [
       {
         path: 'calendar',
         loadChildren: './pages/calendar/calendar.module#CalendarAppModule'
+      },
+      {
+        path: 'editor',
+        loadChildren: './pages/editor/editor.module#EditorModule'
       }
     ]
   }

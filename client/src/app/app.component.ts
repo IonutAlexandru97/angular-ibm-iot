@@ -48,16 +48,25 @@ export class AppComponent {
         badgeColor: '#2196F3'
       },
       {
-        name: 'Maps',
+        name: 'Device current location',
         routeOrFunction: '/maps',
         icon: 'place',
         position: 13
       },
       {
-        name:'Calendar',
-        routeOrFunction: '/calendar',
-        icon: 'calendar_today',
-        position: 14
+        name: 'Angular Extra Features',
+        icon: 'menu',
+        position: 85,
+        subItems: [
+          {
+            name:'Calendar',
+            routeOrFunction: '/calendar'
+          },
+          {
+            name: 'Online Editor',
+            routeOrFunction: '/editor'
+          }
+        ]
       }
     ])
   }
