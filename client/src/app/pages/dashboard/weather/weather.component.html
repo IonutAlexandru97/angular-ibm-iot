@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Weather in your current location for next 7 days</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-grid-list cols="7" rowHeight="47px" [gutterSize]="'1px'">
+          <p *ngIf="weather.length == 0">Searching...</p>
+          <mat-grid-tile *ngFor="let forecast of weather"><img [src]="forecast.iconLink" /></mat-grid-tile>
+          <mat-grid-tile *ngFor="let forecast of weather">{{ forecast.highTemperature }} &#8451;</mat-grid-tile>
+          <mat-grid-tile *ngFor="let forecast of weather">{{ forecast.weekday}}</mat-grid-tile>
+          <mat-grid-tile *ngFor="let forecast of weather">{{ forecast.utcTime | moment }}</mat-grid-tile>
+        </mat-grid-list>
+  </mat-card-content>
+</mat-card>

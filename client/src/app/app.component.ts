@@ -10,10 +10,10 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  @HostListener("window:beforeunload", ["$event"])
-  clearLocalStorage(event){
-    localStorage.clear();
-}
+//   @HostListener("window:beforeunload", ["$event"])
+//   clearLocalStorage(event){
+//     localStorage.clear();
+// }
   constructor(private themeService: ThemeService,
               private sidenavService: SidenavService,
               private iconRegistry: MatIconRegistry,
