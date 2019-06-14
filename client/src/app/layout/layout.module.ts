@@ -11,6 +11,7 @@ import { NavigationModule } from './navigation/navigation.module';
 import { BackdropModule } from 'src/@client/shared/backdrop/backdrop.module';
 import { FooterModule } from './footer/footer.module';
 import { ConfigPanelModule } from './config-panel/config-panel.module';
+import { QuickpanelModule } from './quickpanel/quickpanel.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ConfigPanelModule } from './config-panel/config-panel.module';
     NavigationModule,
     BackdropModule,
     FooterModule,
-    ConfigPanelModule
+    ConfigPanelModule,
+    QuickpanelModule
   ],
   declarations: [LayoutComponent]
 })
