@@ -1,4 +1,4 @@
-import { Component, Renderer2, Inject } from '@angular/core';
+import { Component, Renderer2, Inject, HostListener } from '@angular/core';
 import { ThemeService } from 'src/@client/services/theme.service';
 import { MatIconRegistry } from '@angular/material';
 import { DOCUMENT } from '@angular/common';
@@ -10,7 +10,10 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-
+  @HostListener("window:beforeunload", ["$event"])
+  clearLocalStorage(event){
+    localStorage.clear();
+}
   constructor(private themeService: ThemeService,
               private sidenavService: SidenavService,
               private iconRegistry: MatIconRegistry,
