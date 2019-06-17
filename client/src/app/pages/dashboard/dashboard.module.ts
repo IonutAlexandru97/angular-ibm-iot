@@ -9,6 +9,7 @@ import { NewsComponent } from './news/news.component';
 import { WeatherComponent } from './weather/weather.component';
 import { MomentPipe } from './weather/moment.pipe';
 import { FahrenheitPipe } from './weather/fahrenheit.pipe';
+import { DeviceStatusChartComponent } from './device-status-chart/device-status-chart.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { FahrenheitPipe } from './weather/fahrenheit.pipe';
     DashboardRoutingModule,
     MaterialModule
   ],
-  declarations: [DashboardComponent, NewsComponent, WeatherComponent, MomentPipe, FahrenheitPipe],
+  declarations: [DashboardComponent, NewsComponent, WeatherComponent, MomentPipe, FahrenheitPipe, DeviceStatusChartComponent],
   providers: [DashboardService, NewsService]
 })
 export class DashboardModule {

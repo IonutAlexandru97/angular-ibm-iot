@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MailService {
 
-private _sendMailAPI = 'http://localhost:3000/api/send';
+private _sendMailAPI = 'https://server-dot-my-project-1484493585394.appspot.com/api/send';
 constructor(private http: HttpClient) { }
 
 sendMail(email){
