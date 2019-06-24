@@ -33,7 +33,7 @@ export class AuthenticationService {
         this.token = token;
     }
 
-    private getToken(): string {
+    public getToken(): string {
         if (!this.token) {
             this.token = localStorage.getItem('token');
         }
@@ -57,9 +57,9 @@ export class AuthenticationService {
         if (method === 'post') {
           //Local api --> http://localhost:3000/api
           //Cloud API --> https://server-dot-my-project-1484493585394.appspot.com/api
-            base = this.http.post(`https://server-dot-my-project-1484493585394.appspot.com/api/${type}`, user);
+            base = this.http.post(`http://localhost:3000/api/${type}`, user);
         } else {
-            base = this.http.get(`https://server-dot-my-project-1484493585394.appspot.com/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } });
+            base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } });
         }
 
         const request = base.pipe(
@@ -84,6 +84,10 @@ export class AuthenticationService {
 
     public profile(): Observable<any> {
         return this.request('get', 'profile');
+    }
+
+    loggedIn(){
+      return !!localStorage.getItem('token');
     }
 
 }
