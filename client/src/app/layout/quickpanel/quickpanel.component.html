@@ -1,0 +1,37 @@
+<mat-tab-group class="quickpanel" fxFlex>
+  <mat-tab label="Overview">
+    <client-scrollbar class="overflow-container">
+      <div class="text-padding">
+        <p>TODAY</p>
+        <p class="h1">
+          <span>{{ todayDay }}</span> <br />
+          <span>{{ todayDate }}</span><span
+            style="font-size: 18px; vertical-align: top;">{{ todayDateSuffix }}</span><span>{{ todayMonth }}</span>
+        </p>
+      </div>
+
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+        <h3 matSubheader>Server Statistics</h3>
+        <a mat-list-item>
+          <p matLine>CPU Load (71% / 100%)</p>
+          <p class="progress-bar" matLine>
+            <mat-progress-bar mode="determinate" color="primary" value="71"></mat-progress-bar>
+          </p>
+        </a>
+        <a mat-list-item>
+          <p matLine>RAM Usage (6,175 MB / 16,384 MB)</p>
+          <p class="progress-bar" matLine>
+            <mat-progress-bar mode="determinate" color="accent" value="34"></mat-progress-bar>
+          </p>
+        </a>
+        <a mat-list-item>
+          <p matLine>CPU Temp (43° / 80°)</p>
+          <p class="progress-bar" matLine>
+            <mat-progress-bar mode="determinate" color="warn" value="54"></mat-progress-bar>
+          </p>
+        </a>
+      </mat-nav-list>
+    </client-scrollbar>
+  </mat-tab>
+</mat-tab-group>

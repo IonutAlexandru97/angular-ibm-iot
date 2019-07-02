@@ -3,15 +3,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions, MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material';
 import { LayoutModule } from './layout/layout.module';
 import { PendingInterceptorModule } from 'src/@client/shared/loading-indicator/pending-interceptor.module';
-import { AuthGuardService } from 'src/@client/services/auth.guard';
+import { AuthGuard } from 'src/@client/services/auth.guard';
 import { AuthenticationService } from 'src/@client/services/authentication.service';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../environments/environment';
+import { TokenInterceptorService } from 'src/@client/services/token-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     LayoutModule,
     OverlayModule,
     PendingInterceptorModule,
@@ -44,8 +46,13 @@ import { environment } from '../environments/environment';
         verticalPosition: 'bottom',
       } as MatSnackBarConfig
     },
-    AuthGuardService,
-    AuthenticationService
+    AuthGuard,
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

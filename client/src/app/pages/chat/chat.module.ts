@@ -6,6 +6,9 @@ import { ChatService } from './chat.service';
 import { ChatRoutingModule } from './chat-routing.module';
 import { MaterialModule } from 'src/@client/shared/material-components.module';
 import { ScrollbarModule } from 'src/@client/shared/scrollbar/scrollbar.module';
+import { QuillModule } from 'ngx-quill';
+import { MailSupportComponent } from './mail-support/mail-support.component';
+import { MailService } from 'src/@client/services/mail.service';
 
 @NgModule({
   imports: [
@@ -14,12 +17,18 @@ import { ScrollbarModule } from 'src/@client/shared/scrollbar/scrollbar.module';
     ChatRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    ScrollbarModule
+    ScrollbarModule,
+    QuillModule
   ],
   declarations: [
     ChatComponent,
+    MailSupportComponent
   ],
   exports: [ChatComponent],
-  providers: [ChatService]
+  providers: [
+    ChatService,
+    MailService
+  ],
+  entryComponents: [MailSupportComponent]
 })
 export class ChatModule { }

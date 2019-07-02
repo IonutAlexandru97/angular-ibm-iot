@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+var JWT_SECRET = 'secret'; 
  
 module.exports.verifyJwtToken = (req, res, next) => {
     var token;
@@ -8,10 +9,10 @@ module.exports.verifyJwtToken = (req, res, next) => {
     if (!token)
         return res.status(403).send({ auth: false, message: 'No token provided.' });
     else {
-        jwt.verify(token, process.env.JWT_SECRET,
+        jwt.verify(token, JWT_SECRET,
             (err, decoded) => {
                 if (err)
-                    return res.status(500).send({ auth: false, message: 'Token authentication failed.' });
+                    return res.status(401).send({ auth: false, message: 'Token authentication failed.' });
                 else {
                     req._id = decoded._id;
                     next();

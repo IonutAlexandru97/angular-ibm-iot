@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import 'hammerjs';
 import { LayoutComponent } from './layout/layout.component';
-import { AuthGuardService } from 'src/@client/services/auth.guard';
+import { AuthGuard } from 'src/@client/services/auth.guard';
 
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'forgot-password', loadChildren: './pages/authentication/forgot-password/forgot-password.module#ForgotPasswordModule'},
   { path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -23,16 +23,16 @@ const routes: Routes = [
         loadChildren: './pages/chat/chat.module#ChatModule',
       },
       {
-        path: 'inbox',
-        loadChildren: './pages/inbox/inbox.module#InboxModule'
-      },
-      {
         path: 'maps',
         loadChildren: './pages/maps/google-maps/google-maps.module#GoogleMapsModule'
       },
       {
         path: 'calendar',
         loadChildren: './pages/calendar/calendar.module#CalendarAppModule'
+      },
+      {
+        path: 'editor',
+        loadChildren: './pages/editor/editor.module#EditorModule'
       }
     ]
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApiAiClient } from 'api-ai-javascript/es6/ApiAiClient'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ChatService {
 
 readonly token = environment.dialogFlow.smartBot;
 readonly client = new ApiAiClient({accessToken: this.token});
-conversation = new BehaviorSubject<Message[]>([]);
+ conversation = new BehaviorSubject<Message[]>([]);
 
 constructor() { }
 

@@ -7,6 +7,8 @@ import { SidenavState } from './sidenav-state.enum';
 import { SidenavService } from './sidenav.service';
 import { ThemeService } from '../../../@client/services/theme.service';
 import { UserDetails, AuthenticationService } from 'src/@client/services/authentication.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'client-sidenav',
@@ -35,7 +37,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private sidenavService: SidenavService,
               private themeService: ThemeService,
-              private auth: AuthenticationService) {
+              private auth: AuthenticationService,
+              private snackbar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -45,7 +48,15 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.auth.profile().subscribe(user => {
       this.details = user;
     }, (err) =>{
-      console.error(err);
+      if(err instanceof HttpErrorResponse){
+        if (err.status === 401){
+          localStorage.removeItem('token');
+          this.router.navigate(['/login']);
+          this.snackbar.open('Session expired, please login again!', `${err.status}: ${err.statusText}`,{
+            duration: 10000
+          });
+        }
+      }
     })
   }
 
@@ -69,6 +80,9 @@ export class SidenavComponent implements OnInit, OnDestroy {
     }
   }
 
+  logOut(){
+    this.auth.logOut();
+  }
   ngOnDestroy() {
   }
 }

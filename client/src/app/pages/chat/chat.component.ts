@@ -4,6 +4,8 @@ import { Message, ChatService } from './chat.service';
 import 'rxjs/add/operator/scan';
 import { FormControl } from '@angular/forms';
 import { ScrollbarDirective } from 'src/@client/shared/scrollbar/scrollbar.directive';
+import { MatDialog } from '@angular/material';;
+import { MailSupportComponent } from './mail-support/mail-support.component';
 
 @Component({
   selector: 'client-chat',
@@ -23,13 +25,18 @@ export class ChatComponent implements OnInit {
 
   constructor(
     public chat: ChatService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private dialog: MatDialog
     ) {}
 
   ngOnInit() {
     this.replyCtrl = new FormControl();
     this.messages = this.chat.conversation.asObservable()
     .scan((acc, val) => acc.concat(val));
+  }
+
+  openCompose(){
+    this.dialog.open(MailSupportComponent);
   }
 
   sendMessage(){

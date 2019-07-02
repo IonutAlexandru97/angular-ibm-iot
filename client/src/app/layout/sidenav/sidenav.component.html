@@ -42,7 +42,7 @@
           <a [routerLink]="['/chat']" mat-icon-button>
             <mat-icon>chat</mat-icon>
           </a>
-          <a [routerLink]="['/login']" mat-icon-button>
+          <a (click)="logOut()" [routerLink]="['/login']" mat-icon-button>
             <mat-icon>exit_to_app</mat-icon>
           </a>
         </div>

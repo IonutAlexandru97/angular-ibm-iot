@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 export interface TokenPayload {
@@ -17,7 +18,7 @@ interface TokenResponse {
 }
 
 export interface UserDetails {
-    _id: string;
+    _id?: string;
     first_name?: string;
     last_name?: string;
     email?: string;
@@ -26,14 +27,15 @@ export interface UserDetails {
 @Injectable()
 export class AuthenticationService {
     private token: string;
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                private router: Router) { }
 
     private saveToken(token: string): void {
         localStorage.setItem('token', token);
         this.token = token;
     }
 
-    private getToken(): string {
+    public getToken(): string {
         if (!this.token) {
             this.token = localStorage.getItem('token');
         }
@@ -55,6 +57,8 @@ export class AuthenticationService {
     private request(method: 'post' | 'get', type: 'login' | 'register' | 'profile', user?: TokenPayload): Observable<any> {
         let base;
         if (method === 'post') {
+          //Local api --> http://localhost:3000/api
+          //Cloud API --> https://server-dot-my-project-1484493585394.appspot.com/api
             base = this.http.post(`http://localhost:3000/api/${type}`, user);
         } else {
             base = this.http.get(`http://localhost:3000/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` } });
@@ -82,6 +86,15 @@ export class AuthenticationService {
 
     public profile(): Observable<any> {
         return this.request('get', 'profile');
+    }
+
+    loggedIn(){
+      return !!localStorage.getItem('token');
+    }
+
+    logOut(){
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
     }
 
 }

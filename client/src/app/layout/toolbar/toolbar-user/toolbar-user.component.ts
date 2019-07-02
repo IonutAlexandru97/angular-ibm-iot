@@ -32,9 +32,7 @@ export class ToolbarUserComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('isLoggedin');
-    this.router.navigate(['/login']);
+    this.auth.logOut();
   }
 
 }

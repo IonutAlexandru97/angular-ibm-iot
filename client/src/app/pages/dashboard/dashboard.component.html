@@ -1,0 +1,32 @@
+<div class="dashboard padding" fxLayout="column" [fxLayoutGap]="gap">
+  <div fxFlex="noshrink" fxLayout="column" [fxLayoutGap]="gap" fxLayout.gt-lg="row">
+    <div fxLayout="column" [fxLayoutGap]="gap" [fxFlex]="col(2)" fxLayout.gt-sm="row">
+      <div fxFlex="auto" [fxFlex.gt-sm]="col(4)">
+
+        <app-news *ngIf="auth.loggedIn()"></app-news>
+      </div>
+      <div fxFlex="auto" [fxFlex.gt-sm]="col(4)">
+          <div class="footer" fxLayout="row">
+              <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="24px" fxFlex="grow">
+                  <a href="https://licenta2019.eu-de.mybluemix.net/ui"
+                     class="action" color="accent" id="get-client" mat-raised-button>
+                    <mat-icon class="icon">data_usage</mat-icon>
+                    Device Dashboard
+                  </a>
+
+                  <div class="name" fxHide fxShow.gt-sm>
+                   Click here to access Device Dashboard!
+                  </div>
+                </div>
+          </div>
+          <br>
+
+          <app-weather *ngIf="auth.loggedIn()"></app-weather>
+          <client-device-status-chart *ngIf="auth.loggedIn()"></client-device-status-chart>
+          <br>
+          <client-line-chart-widget class="route-animations-elements" [data]="clicksData$ | async"
+                                 [options]="totalClicksOptions"></client-line-chart-widget>
+      </div>
+    </div>
+  </div>
+

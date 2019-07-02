@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
       this.snackbar.open('Logged in with success!!', 'Welcome to your Dashboard!', {
         duration: 10000
       });
-      localStorage.setItem('isLoggedin', 'true');
     }, err => console.log(err));
   }
 
