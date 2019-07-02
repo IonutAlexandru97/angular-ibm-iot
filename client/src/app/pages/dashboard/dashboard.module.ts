@@ -10,12 +10,15 @@ import { WeatherComponent } from './weather/weather.component';
 import { MomentPipe } from './weather/moment.pipe';
 import { FahrenheitPipe } from './weather/fahrenheit.pipe';
 import { DeviceStatusChartComponent } from './device-status-chart/device-status-chart.component';
+import { LineChartWidgetModule } from './line-chart-widget/line-chart-widget.module';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MaterialModule
+    MaterialModule,
+
+    LineChartWidgetModule
   ],
   declarations: [DashboardComponent, NewsComponent, WeatherComponent, MomentPipe, FahrenheitPipe, DeviceStatusChartComponent],
   providers: [DashboardService, NewsService]

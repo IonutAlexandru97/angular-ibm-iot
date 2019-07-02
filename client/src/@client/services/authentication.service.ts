@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 
 export interface TokenPayload {
@@ -26,7 +27,8 @@ export interface UserDetails {
 @Injectable()
 export class AuthenticationService {
     private token: string;
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,
+                private router: Router) { }
 
     private saveToken(token: string): void {
         localStorage.setItem('token', token);
@@ -88,6 +90,11 @@ export class AuthenticationService {
 
     loggedIn(){
       return !!localStorage.getItem('token');
+    }
+
+    logOut(){
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
     }
 
 }

@@ -40,7 +40,7 @@ export class AppComponent {
         routeOrFunction: '/',
         icon: 'dashboard',
         position: 10,
-        pathMatchExact: true
+        pathMatchExact: true,
       },
       {
         name: 'Live Support',

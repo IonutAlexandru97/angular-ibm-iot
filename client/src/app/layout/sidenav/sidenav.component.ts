@@ -80,6 +80,9 @@ export class SidenavComponent implements OnInit, OnDestroy {
     }
   }
 
+  logOut(){
+    this.auth.logOut();
+  }
   ngOnDestroy() {
   }
 }

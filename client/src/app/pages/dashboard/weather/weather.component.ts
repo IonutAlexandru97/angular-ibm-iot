@@ -33,6 +33,7 @@ export class WeatherComponent implements OnInit {
 
 
   public getWeather(coordinates: any) {
+    //HERE Weather API
 // tslint:disable-next-line: max-line-length
     this.http.jsonp('https://weather.cit.api.here.com/weather/1.0/report.json?product=forecast_7days_simple&latitude=' + coordinates.latitude + '&longitude=' + coordinates.longitude + '&app_id=' + this.appId + '&app_code=' + this.appCode, 'jsonpCallback')
         .pipe(map(result => (<any>result).dailyForecasts.forecastLocation))

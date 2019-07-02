@@ -9,6 +9,7 @@ import { NewsService } from './news.service';
 export class NewsComponent implements OnInit {
   Articles: Array<any>;
   Sources: Array<any>;
+  Test: any;
   constructor(private newsService: NewsService) { }
 
   ngOnInit() {

@@ -21,10 +21,10 @@ export class DeviceStatusChartComponent implements OnInit {
       data: [{
         type: "pie",
         showInLegend: true,
-        toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+        toolTipContent: "",
         indexLabel: "{name} - #percent%",
         dataPoints: [
-          { y: 450, name: "Online" }
+          { y: 100, name: "Health" }
         ]
       }]
     });

@@ -40,7 +40,7 @@ userSchema.methods.generateJwt = function() {
         password: this.password
     },JWT_SECRET,
     {
-        expiresIn: 20
+        expiresIn: 2000
     });
 }
 

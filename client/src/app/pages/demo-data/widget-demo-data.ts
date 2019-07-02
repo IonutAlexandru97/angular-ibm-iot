@@ -21,7 +21,7 @@ export const visitsChartDemoLabels = () => {
 };
 
 export const clicksChartDemoValues = [
-  186, 34, 172, 161, 27, 163, 87, 119, 123, 15, 180, 7, 72, 107, 181, 33, 45, 143, 91, 200
+  25, 26, 25, 24, 25, 24, 25, 23, 20, 21, 22, 20, 20, 23, 25, 22, 23, 21, 25, 27
 ];
 
 export const clicksChartDemoLabels = () => {

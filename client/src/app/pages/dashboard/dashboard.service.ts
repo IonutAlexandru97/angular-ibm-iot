@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 import { clicksChartDemoLabels, clicksChartDemoValues } from '../demo-data/widget-demo-data';
 import { map } from 'rxjs/operators';
 import { ChartData } from 'chart.js';
+import { AuthenticationService } from 'src/@client/services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ toClicksChartData(chartData: { labels: string[], data: number[] }) {
     labels: chartData.labels,
     datasets: [
       {
-        label: '# of Clicks',
+        //label: '# of Clicks',
         data: chartData.data,
         fill: false,
         backgroundColor: '#FFFFFF',
